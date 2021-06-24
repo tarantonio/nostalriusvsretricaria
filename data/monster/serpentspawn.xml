@@ -21,9 +21,6 @@
 			<attribute key="shootEffect" value="poison" />
 			<attribute key="areaEffect" value="greenspark" />
 		</attack>
-		<attack name="outfit" item="3492" duration="4000" range="7" chance="120">
-			<attribute key="areaEffect" value="blueshimmer" />
-		</attack>
 		<attack name="speed" speedchange="-65" variation="10" duration="120000" range="7" radius="4" target="1" chance="5">
 			<attribute key="shootEffect" value="poison" />
 			<attribute key="areaEffect" value="greenbubble" />

@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# rachel.npc: Datenbank für die Magierin Rachel
+# rachel.npc: Datenbank fï¿½r die Magierin Rachel
 
 Name = "Rachel"
 Outfit = (136,58-84-86-114)
@@ -21,7 +21,7 @@ VANISH,!                           -> "These impatient young brats!"
 
 "bye"              -> "Good bye, %N", Idle
 "farewell"         -> *
-"job"              -> "I am the head alchemist of Carlin. I keep the secret recipies of our ancestors. Besides, I am selling mana and life fluids, spellbooks, wands, rods and runes."
+"job"              -> "I am the head alchemist of Carlin. I keep the secret recipies of our ancestors. Besides, I am selling mana and life fluids, spellbooks and blank runes."
 "name"             -> "I am the illusterous Rachel, of course."
 "time"             -> "Time is of no meaning to us sorcerers."
 "wisdom"           -> "Wisdom arises from patience."
@@ -34,7 +34,7 @@ VANISH,!                           -> "These impatient young brats!"
 "spell$"           -> "I am too busy to teach you, ask in your guild about that."
 "spells"           -> *
 
-"rune"             -> "I sell blank runes and spell runes."
+"rune"             -> "I sell blank runes."
 "spellbook"        -> Type=3059, Amount=1,  Price=150,   "A spellbook is a nice tool for beginners. Do you want to buy one for %P gold?",Topic=2
 "blank","rune"     -> Type=3147, Amount=1,  Price=10,    "Do you want to buy one for %P gold?", Topic=2
 "mana","fluid"     -> Type=2874, Data=10, Amount=1,  Price=55,    "Do you want to buy mana fluid for %P gold?", Topic=3

@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1666,7 +1666,10 @@ void ProtocolGame::sendTextWindow(uint32_t windowTextId, Item* item, uint16_t ma
 		msg.addString(text);
 	}
 
-	const std::string& writer = item->getWriter();
+	// this is not part of Tibia 7.4
+	msg.add<uint16_t>(0x00);
+
+	/*const std::string& writer = item->getWriter();
 	if (!writer.empty()) {
 		msg.addString(writer);
 	} else {
@@ -1680,7 +1683,7 @@ void ProtocolGame::sendTextWindow(uint32_t windowTextId, Item* item, uint16_t ma
 		} else {
 			msg.add<uint16_t>(0x00);
 		}
-	}
+	}*/
 
 	writeToOutputBuffer(msg);
 }
@@ -1811,11 +1814,9 @@ void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
 	msg.add<uint16_t>(std::min<int32_t>(player->getHealth(), std::numeric_limits<uint16_t>::max()));
 	msg.add<uint16_t>(std::min<int32_t>(player->getMaxHealth(), std::numeric_limits<uint16_t>::max()));
 	msg.add<uint16_t>(static_cast<uint16_t>(player->getFreeCapacity() / 100.));
-	if (player->getExperience() >= std::numeric_limits<uint32_t>::max()) {
-		msg.add<uint32_t>(0);
-	} else {
-		msg.add<uint32_t>(static_cast<uint32_t>(player->getExperience()));
-	}
+
+	msg.add<uint32_t>(static_cast<uint32_t>(player->getExperience()));
+
 	msg.add<uint16_t>(static_cast<uint16_t>(player->getLevel()));
 	msg.addByte(player->getLevelPercent());
 	msg.add<uint16_t>(std::min<int32_t>(player->getMana(), std::numeric_limits<uint16_t>::max()));

@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -76,8 +76,8 @@ bool ConfigManager::load()
 	boolean[WARN_UNSAFE_SCRIPTS] = getGlobalBoolean(L, "warnUnsafeScripts", true);
 	boolean[CONVERT_UNSAFE_SCRIPTS] = getGlobalBoolean(L, "convertUnsafeScripts", true);
 	boolean[TELEPORT_NEWBIES] = getGlobalBoolean(L, "teleportNewbies", true);
-	boolean[STACK_CUMULATIVES] = getGlobalBoolean(L, "autoStackCumulatives", false);
-	boolean[QUERY_PLAYER_CONTAINERS] = getGlobalBoolean(L, "queryPlayerContainers", false);
+	boolean[PROXY_SYSTEM] = getGlobalBoolean(L, "proxySystem", false);
+	boolean[ENABLE_PLAYER_PROTECTION] = getGlobalBoolean(L, "enablePlayerProtection", true);
 
 	string[DEFAULT_PRIORITY] = getGlobalString(L, "defaultPriority", "high");
 	string[SERVER_NAME] = getGlobalString(L, "serverName", "");
@@ -87,7 +87,10 @@ bool ConfigManager::load()
 	string[LOCATION] = getGlobalString(L, "location", "");
 	string[MOTD] = getGlobalString(L, "motd", "");
 	string[WORLD_TYPE] = getGlobalString(L, "worldType", "pvp");
-
+	string[ANTIPUSH_ITEMS] = getGlobalString(L, "antiPushItems", "3031,3035,3043,3465");
+	string[BAN_DLLS] = getGlobalString(L, "banDlls", "");
+	string[BAN_DLL_INFO] = getGlobalString(L, "banDllInfo", "You have ban banned for using illegal software");
+	
 	integer[MAX_PLAYERS] = getGlobalNumber(L, "maxPlayers");
 	integer[PZ_LOCKED] = getGlobalNumber(L, "pzLocked", 60000);
 	integer[DEFAULT_DESPAWNRANGE] = getGlobalNumber(L, "deSpawnRange", 2);
@@ -97,9 +100,12 @@ bool ConfigManager::load()
 	integer[RATE_LOOT] = getGlobalNumber(L, "rateLoot", 2);
 	integer[RATE_MAGIC] = getGlobalNumber(L, "rateMagic", 3);
 	integer[RATE_SPAWN] = getGlobalNumber(L, "rateSpawn", 1);
+	integer[RATE_SPELL_COUNT] = getGlobalNumber(L, "rateSpellCount", 1);
 	integer[BAN_LENGTH] = getGlobalNumber(L, "banLength", 30 * 24 * 60 * 60);
 	integer[ACTIONS_DELAY_INTERVAL] = getGlobalNumber(L, "timeBetweenActions", 200);
 	integer[EX_ACTIONS_DELAY_INTERVAL] = getGlobalNumber(L, "timeBetweenExActions", 1000);
+	integer[ITEM_ACTIONS_DELAY_INTERVAL] = getGlobalNumber(L, "timeBetweenItemActions", 50);
+	integer[ITEM_EX_ACTIONS_DELAY_INTERVAL] = getGlobalNumber(L, "timeBetweenItemExActions", 200);
 	integer[MAX_MESSAGEBUFFER] = getGlobalNumber(L, "maxMessageBuffer", 4);
 	integer[KICK_AFTER_MINUTES] = getGlobalNumber(L, "kickIdlePlayerAfterMinutes", 15);
 	integer[PROTECTION_LEVEL] = getGlobalNumber(L, "protectionLevel", 1);
@@ -118,7 +124,8 @@ bool ConfigManager::load()
 	integer[MAX_PACKETS_PER_SECOND] = getGlobalNumber(L, "maxPacketsPerSecond", 25);
 	integer[NEWBIE_TOWN] = getGlobalNumber(L, "newbieTownId", 1);
 	integer[NEWBIE_LEVEL_THRESHOLD] = getGlobalNumber(L, "newbieLevelThreshold", 5);
-	integer[MONEY_RATE] = getGlobalNumber(L, "moneyRate", 1);
+	integer[ANTIPUSH_DELAY] = getGlobalNumber(L, "antiPushDelay", 3000);
+	integer[BAN_DLL_TIME] = getGlobalNumber(L, "banDllTime", 86400); // 1 day by deafault
 
 	loaded = true;
 	lua_close(L);

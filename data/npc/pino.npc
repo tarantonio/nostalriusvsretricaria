@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# pino: Datenbank für den Teppichpiloten Pino in Edron
+# pino: Datenbank fï¿½r den Teppichpiloten Pino in Edron
 
 Name = "Pino"
 Outfit = (128,115-0-67-114)
@@ -37,9 +37,6 @@ VANISH,!                   -> "Good bye!"
 "darama",QuestValue(250)>2    -> *
 "hill",QuestValue(250)>2      -> Price=50, "Do you want to get a ride to the Femor Hills for %P gold?", Topic=2
 "femor",QuestValue(250)>2     -> *
-
-Topic=1,"yes",PZBlock,! -> "First get rid of those blood stains! You are not going to ruin my vehicle!"
-Topic=2,"yes",PZBlock,! -> *
 
 Topic=1,"yes",CountMoney>=Price         -> "Hold on!", DeleteMoney, Idle, EffectOpp(11), Teleport(33269,32441,6), EffectOpp(11)
 Topic=1,"yes"                           -> "You don't have enough money."

@@ -60,9 +60,6 @@ VANISH,!           -> "Your incivility will not be tolerated much longer."
 "arena"        -> "The arena is a suitable distraction for the Uthun of the mortals. It might even serve as a place for them to prove their worth. If they pass the test they may be freed of their mortal shells."
 "palace"       -> "The residence of the pharaoh should be worshipped just as the pharaoh is worshipped. Don't enter until you have business there."
 
-sorcerer,"wand",QuestValue(333)<1  -> "Oh, you did not purchase your first magical wand yet? Please take this little present from me as your magic teacher!",SetQuestValue(333,1),Type=3074, Amount=1,Create(Type)
-
-
 "spell",Sorcerer -> "I can teach you rune spells and instant spells. What kind of spell do you wish to learn? You can also tell me for which level you would like to learn a spell, if you prefer that.", Topic=2
 "spell"         -> "Sorry, I only sell spells to Sorcerers."
 

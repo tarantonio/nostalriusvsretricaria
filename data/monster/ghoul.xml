@@ -39,6 +39,5 @@
 		<item id="3114" countmax="1" chance="30" /> <!-- a skull -->
 		<item id="2920" countmax="1" chance="600" /> <!-- a torch -->
 		<item id="3367" countmax="1" chance="50" /> <!-- a viking helmet -->
-		<item id="3492" countmax="6" chance="800" /> <!-- a worm -->
 	</loot>
 </monster>

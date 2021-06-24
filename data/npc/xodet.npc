@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# xodet.npc: Datenbank für den Magieladen-Besitzer Xodet
+# xodet.npc: Datenbank fï¿½r den Magieladen-Besitzer Xodet
 
 Name = "Xodet"
 Outfit = (130,19-86-87-95)
@@ -21,12 +21,12 @@ VANISH,!           -> "Good bye."
 "job"      -> "I'm sorcerer and trade with all kinds of magic items."
 "sorcerer" -> "There is a sorcerer guild in Thais. Just go in the east of the town, it is easly to find."
 
-"offer"           -> "I'm selling life and mana fluids, runes, wands, rods and spellbooks."
+"offer"           -> "I'm selling life and mana fluids, blank runes and spellbooks."
 "goods"           -> *
 "do","you","sell" -> *
 "do","you","have" -> *
 
-"rune"         -> "I sell blank runes and spell runes."
+"rune"         -> "I sell blank runes."
 "life","fluid" -> Type=2874, Data=11, Amount=1, Price=60, "Do you want to buy life fluid for %P gold?", Topic=2
 "mana","fluid" -> Type=2874, Data=10, Amount=1, Price=55, "Do you want to buy mana fluid for %P gold?", Topic=2
 "blank","rune" -> Type=3147, Amount=1, Price=10, "Do you want to buy a blank rune for %P gold?", Topic=1

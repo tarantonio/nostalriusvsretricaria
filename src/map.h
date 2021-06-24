@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,6 +43,12 @@ struct AStarNode {
 	AStarNode* parent;
 	int_fast32_t f;
 	uint16_t x, y;
+};
+
+enum MapPathFinding_t {
+	MAPPATH_NONE = 0,
+	MAPPATH_ITEM,
+	MAPPATH_RUNE
 };
 
 static constexpr int32_t MAX_NODES = 512;
@@ -235,7 +241,8 @@ class Map
 		  *	\returns The result if you can throw there or not
 		  */
 		bool canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight = true,
-		                      int32_t rangex = Map::maxClientViewportX, int32_t rangey = Map::maxClientViewportY) const;
+			int32_t rangex = Map::maxClientViewportX, int32_t rangey = Map::maxClientViewportY, 
+			MapPathFinding_t = MAPPATH_NONE) const;
 
 		/**
 		  * Checks if path is clear from fromPos to toPos
@@ -245,8 +252,9 @@ class Map
 		  *	\param floorCheck if true then view is not clear if fromPos.z is not the same as toPos.z
 		  *	\returns The result if there is no obstacles
 		  */
-		bool isSightClear(const Position& fromPos, const Position& toPos, bool floorCheck) const;
-		bool checkSightLine(const Position& fromPos, const Position& toPos) const;
+		bool isSightClear(const Position& fromPos, const Position& toPos, bool floorCheck, MapPathFinding_t path = MAPPATH_NONE) const;
+		bool checkSightLine(const Position fromPos, const Position toPos, MapPathFinding_t path = MAPPATH_NONE) const;
+		bool checkSightSpellLine(const Position fromPos, const Position toPos) const;
 
 		const Tile* canWalkTo(const Creature& creature, const Position& pos) const;
 

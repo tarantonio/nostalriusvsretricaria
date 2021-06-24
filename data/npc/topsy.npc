@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# topsy.npc: Datenbank für shopkeeper Topsy (magic)
+# topsy.npc: Datenbank fï¿½r shopkeeper Topsy (magic)
 
 Name = "Topsy"
 Outfit = (139,78-52-64-115)
@@ -18,7 +18,7 @@ VANISH,!             -> "Good bye. Do come again!"
 "bye"	   	           -> "Good bye. Do come again!", Idle
 "farewell" 		       -> *
 "how","are","you"    -> "I'm just wonderful - thank you for asking."
-"job"                -> "I sell runes, life and mana fluids - your best friends in any dungeon!"
+"job"                -> "I sell blank runes, life and mana fluids - your best friends in any dungeon!"
 "name"               -> "My name is Topsy."
 "time"               -> "Time waits for no one! Not even you, sweetheart, so please do hurry up."
 "help"               -> "I'd love to help, but I have a business to run - I am busy busy busy!."
@@ -59,12 +59,12 @@ VANISH,!             -> "Good bye. Do come again!"
 "quest"	             -> "Sure. Just ask my sister Turvy."
 Topic=4              -> "Really? Tststs."
 
-"offer"           -> "I'm selling life and mana fluids, runes, wands, rods and spellbooks."
+"offer"           -> "I'm selling life and mana fluids, blank runes and spellbooks."
 "goods"           -> *
 "do","you","sell" -> *
 "do","you","have" -> *
 
-"rune"         -> "I sell blank runes and spell runes."
+"rune"         -> "I sell blank runes."
 "life","fluid" -> Type=2874, Data=11, Amount=1, Price=60, "Do you want to buy life fluid for %P gold?", Topic=2
 "mana","fluid" -> Type=2874, Data=10, Amount=1, Price=55, "Do you want to buy mana fluid for %P gold?", Topic=2
 "blank","rune" -> Type=3147, Amount=1, Price=10, "Do you want to buy a blank rune for %P gold?", Topic=1

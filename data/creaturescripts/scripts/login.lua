@@ -50,5 +50,6 @@ function onLogin(player)
 	-- Events
 	player:registerEvent("PlayerDeath")
 	player:registerEvent("kills")
+	player:registerEvent("Tasks")
 	return true
 end

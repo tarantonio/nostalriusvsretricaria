@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,9 +24,11 @@
 #include "game.h"
 #include "configmanager.h"
 #include "monster.h"
+#include "events.h"
 
 extern Game g_game;
 extern ConfigManager g_config;
+extern Events* g_events;
 
 CombatDamage Combat::getCombatDamage(Creature* creature) const
 {
@@ -167,23 +169,11 @@ ReturnValue Combat::canTargetCreature(Player* player, Creature* target)
 
 ReturnValue Combat::canDoCombat(Creature* caster, Tile* tile, bool aggressive)
 {
+	// if (tile->hasProperty(CONST_PROP_BLOCKPROJECTILE) || tile->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID) || tile->hasProperty(CONST_PROP_UNLAY)) {
+		// return RETURNVALUE_NOTENOUGHROOM;
+	// }
+
 	if (tile->hasProperty(CONST_PROP_BLOCKPROJECTILE)) {
-		return RETURNVALUE_NOTENOUGHROOM;
-	}
-
-	if (tile->hasProperty(CONST_PROP_BLOCKPROJECTILE) && tile->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID)) {
-		return RETURNVALUE_NOTENOUGHROOM;
-	}
-
-	/*if (tile->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID) && tile->hasProperty(CONST_PROP_UNLAY)) {
-		return RETURNVALUE_NOTENOUGHROOM;
-	}*/
-
-	if (tile->hasProperty(CONST_PROP_IMMOVABLEBLOCKPATH) && tile->hasProperty(CONST_PROP_IMMOVABLENOFIELDBLOCKPATH)) {
-		return RETURNVALUE_NOTENOUGHROOM;
-	}
-
-	if (tile->getTeleportItem()) {
 		return RETURNVALUE_NOTENOUGHROOM;
 	}
 
@@ -208,7 +198,7 @@ ReturnValue Combat::canDoCombat(Creature* caster, Tile* tile, bool aggressive)
 		return RETURNVALUE_ACTIONNOTPERMITTEDINPROTECTIONZONE;
 	}
 
-	return RETURNVALUE_NOERROR;
+	return g_events->eventCreatureOnAreaCombat(caster, tile, aggressive);
 }
 
 bool Combat::isInPvpZone(const Creature* attacker, const Creature* target)
@@ -234,6 +224,33 @@ ReturnValue Combat::canDoCombat(Creature* attacker, Creature* target)
 {
 	if (attacker) {
 		if (const Player* targetPlayer = target->getPlayer()) {
+			//battlefield
+			int32_t valueFirst = 0;
+			int32_t valueTwo = 0;
+			targetPlayer->getStorageValue(100004, valueFirst);
+			if (const Player* attackerPlayer = attacker->getPlayer()) {
+				attackerPlayer->getStorageValue(100004, valueTwo);
+				if ((valueFirst == 1 && valueTwo == 1) || (valueFirst == 2 && valueTwo == 2)) {
+					return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER;
+				}
+			}
+
+			//capture the flag
+			targetPlayer->getStorageValue(120003, valueFirst);
+			if (const Player* attackerPlayer = attacker->getPlayer()) {
+				attackerPlayer->getStorageValue(120003, valueTwo);
+				if ((valueFirst == 1 && valueTwo == 1) || (valueFirst == 2 && valueTwo == 2)) {
+					return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER;
+				}
+			}
+
+			//capture the flag, death protection
+			if (valueFirst > 0) {
+				if (OTSYS_TIME() >= targetPlayer->DamageImmunityRound) {
+					return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER;
+				}
+			}
+
 			if (targetPlayer->hasFlag(PlayerFlag_CannotBeAttacked)) {
 				return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER;
 			}
@@ -299,7 +316,7 @@ ReturnValue Combat::canDoCombat(Creature* attacker, Creature* target)
 			}
 		}
 	}
-	return RETURNVALUE_NOERROR;
+	return g_events->eventCreatureOnTargetCombat(attacker, target);
 }
 
 void Combat::setPlayerCombatValues(formulaType_t formulaType, double mina, double minb, double maxa, double maxb)
@@ -540,12 +557,21 @@ void Combat::combatTileEffects(const SpectatorVec& list, Creature* caster, Tile*
 				break;
 		}
 
+		bool createfield = true;
 		if (caster) {
 			Player* casterPlayer;
 			if (caster->isSummon()) {
 				casterPlayer = caster->getMaster()->getPlayer();
 			} else {
 				casterPlayer = caster->getPlayer();
+			}
+
+			if (casterPlayer) {
+				int32_t value;
+				casterPlayer->getStorageValue(100004, value);
+				if (value > 0 && itemId != 2128 && itemId != 2130) {
+					return;
+				}
 			}
 
 			if (casterPlayer) {
@@ -560,19 +586,35 @@ void Combat::combatTileEffects(const SpectatorVec& list, Creature* caster, Tile*
 				} else if (itemId == ITEM_FIREFIELD_PVP_FULL || itemId == ITEM_POISONFIELD_PVP || itemId == ITEM_ENERGYFIELD_PVP) {
 					casterPlayer->addInFightTicks();
 				}
+
+				int32_t value;
+				if (casterPlayer->getStorageValue(120003, value)) {
+					if (value > 0) {
+						createfield = false;
+					}
+				}
+
+				if (casterPlayer->getStorageValue(666, value) || casterPlayer->getStorageValue(777, value)) {
+					if (value > 0 && itemId != 2128 && itemId != 2130) {
+						createfield = false;
+					}
+				}
 			}
 		}
 
-		Item* item = Item::CreateItem(itemId);
-		if (caster) {
-			item->setOwner(caster->getID());
-		}
+		if (createfield) {
+			Item* item = Item::CreateItem(itemId);
+			if (caster) {
+				item->setOwner(caster->getID());
+			}
 
-		ReturnValue ret = g_game.internalAddItem(tile, item);
-		if (ret == RETURNVALUE_NOERROR) {
-			g_game.startDecay(item);
-		} else {
-			delete item;
+			ReturnValue ret = g_game.internalAddItem(tile, item);
+			if (ret == RETURNVALUE_NOERROR) {
+				g_game.startDecay(item);
+			}
+			else {
+				delete item;
+			}
 		}
 	}
 
@@ -588,12 +630,44 @@ void Combat::combatTileEffects(const SpectatorVec& list, Creature* caster, Tile*
 void Combat::postCombatEffects(Creature* caster, const Position& pos, const CombatParams& params)
 {
 	if (caster && params.distanceEffect != CONST_ANI_NONE) {
-		addDistanceEffect(caster->getPosition(), pos, params.distanceEffect);
+		addDistanceEffect(caster, caster->getPosition(), pos, params.distanceEffect);
 	}
 }
 
-void Combat::addDistanceEffect(const Position& fromPos, const Position& toPos, uint8_t effect)
+void Combat::addDistanceEffect(Creature* caster, const Position& fromPos, const Position& toPos, uint8_t effect)
 {
+	if (effect == CONST_ANI_WEAPONTYPE) {
+		if (!caster) {
+			return;
+		}
+
+		Player* player = caster->getPlayer();
+		if (!player) {
+			return;
+		}
+
+
+		WeaponType_t type = WEAPON_NONE;
+		if (Item* item = player->getWeapon()) {
+			type = item->getWeaponType();
+		}
+
+		switch (type) {
+			case WEAPON_AXE:
+				effect = CONST_ANI_WHIRLWINDAXE;
+				break;
+			case WEAPON_SWORD:
+				effect = CONST_ANI_WHIRLWINDSWORD;
+				break;
+			case WEAPON_CLUB:
+				effect = CONST_ANI_WHIRLWINDCLUB;
+				break;
+			default:
+				effect = CONST_ANI_NONE;
+				break;
+		}
+	}
+
 	if (effect != CONST_ANI_NONE) {
 		g_game.addDistanceEffect(fromPos, toPos, effect);
 	}
@@ -944,7 +1018,7 @@ bool Combat::rangeAttack(Creature* attacker, Creature* target, fightMode_t fight
 	Item* weapon = nullptr;
 	Item* ammunition = nullptr;
 
-	bool moveWeapon = true;
+	bool moveWeapon = false;
 
 	if (Player* player = attacker->getPlayer()) {
 		weapon = player->getWeapon();
@@ -997,6 +1071,9 @@ bool Combat::rangeAttack(Creature* attacker, Creature* target, fightMode_t fight
 			specialEffect = weapon->getWeaponSpecialEffect();
 			attackStrength = weapon->getAttackStrength();
 			attackVariation = weapon->getAttackVariation();
+
+			hitChance += Item::items.getItemType(weapon->getID()).extraHitChance;
+
 			if (weapon->getFragility()) {
 				if (normal_random(0, 99) <= weapon->getFragility()) {
 					uint16_t count = weapon->getItemCount();
@@ -1012,10 +1089,13 @@ bool Combat::rangeAttack(Creature* attacker, Creature* target, fightMode_t fight
 		}
 
 		if (ammunition && ammunition->getWeaponType() == WEAPON_AMMO && weapon->getAmmoType() != AMMO_NONE && weapon->getAmmoType() == ammunition->getAmmoType()) {
-			hitChance = 90; // bows and crossbows
+			hitChance = (ammunition->getID() != 3449 ? 90 : 100); // bows and crossbows
 			specialEffect = ammunition->getWeaponSpecialEffect();
 			attackStrength = ammunition->getAttackStrength();
 			attackVariation = ammunition->getAttackVariation();
+
+			hitChance += Item::items.getItemType(ammunition->getID()).extraHitChance;
+
 			if (normal_random(0, 100) <= ammunition->getFragility()) {
 				uint16_t count = ammunition->getItemCount();
 				if (count > 1) {
@@ -1036,8 +1116,9 @@ bool Combat::rangeAttack(Creature* attacker, Creature* target, fightMode_t fight
 		distance *= 15;
 
 		bool hit = false;
-
-		if (rand() % distance <= skillValue) {
+		if (hitChance == 100) {
+			hit = true;
+		} else if (rand() % distance <= skillValue) {
 			hit = rand() % 100 <= hitChance;
 		}
 
@@ -1169,7 +1250,7 @@ void Combat::circleShapeSpell(Creature* attacker, const Position& toPos, int32_t
 		if (tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
 			continue;
 		}
-
+		
 		if (CreatureVector* creatures = tile->getCreatures()) {
 			for (Creature* creature : *creatures) {
 				impact->handleCreature(creature);
@@ -1192,27 +1273,27 @@ void Combat::getAttackValue(Creature* creature, uint32_t& attackValue, uint32_t&
 			switch (weapon->getWeaponType()) {
 			case WEAPON_AXE: {
 				skill = SKILL_AXE;
-				attackValue = weapon->getAttack();
+				attackValue = weapon->getAttack() + Item::items.getItemType(weapon->getID()).extraAttack;
 				break;
 			}
 			case WEAPON_SWORD: {
 				skill = SKILL_SWORD;
-				attackValue = weapon->getAttack();
+				attackValue = weapon->getAttack() + Item::items.getItemType(weapon->getID()).extraAttack;
 				break;
 			}
 			case WEAPON_CLUB: {
 				skill = SKILL_CLUB;
-				attackValue = weapon->getAttack();
+				attackValue = weapon->getAttack() + Item::items.getItemType(weapon->getID()).extraAttack;
 				break;
 			}
 			case WEAPON_DISTANCE: {
 				skill = SKILL_DISTANCE;
-				attackValue = weapon->getAttack();
+				attackValue = weapon->getAttack() + Item::items.getItemType(weapon->getID()).extraAttack;
 
 				if (weapon->getAmmoType() != AMMO_NONE) {
 					Item* ammunition = player->getAmmunition();
 					if (ammunition && ammunition->getAmmoType() == weapon->getAmmoType()) {
-						attackValue += ammunition->getAttack();
+						attackValue += ammunition->getAttack() + Item::items.getItemType(ammunition->getID()).extraAttack;;
 					}
 				}
 				break;
@@ -1223,9 +1304,19 @@ void Combat::getAttackValue(Creature* creature, uint32_t& attackValue, uint32_t&
 			}
 
 			skillValue = player->getSkillLevel(skill);
+
+			if (weapon->getMinimumLevel() > player->getLevel()) {
+				attackValue = std::max<uint32_t>(7, attackValue / 2);
+			}
 		} else {
 			attackValue = 7;
 			skillValue = player->getSkillLevel(skill);
+		}
+		
+		if (player->getVocationId() == 3 || player->getVocationId() == 7) {
+			attackValue += (player->getLevel() / 4.5);
+		} else if (player->getVocationId() == 4 || player->getVocationId() == 8) {
+			attackValue += (player->getLevel() / 3.0);
 		}
 	} else if (Monster* monster = creature->getMonster()) {
 		attackValue = monster->mType->info.attack;
@@ -1239,7 +1330,7 @@ bool Combat::canUseWeapon(Player* player, Item* weapon)
 		return true;
 	}
 
-	if (player->getLevel() < weapon->getMinimumLevel()) {
+	if (weapon->getWeaponType() == WEAPON_WAND && player->getLevel() < weapon->getMinimumLevel()) {
 		return false;
 	}
 
@@ -1284,7 +1375,7 @@ bool Combat::doCombatHealth(Creature* caster, Creature* target, CombatDamage& da
 		}
 
 		if (caster && params.distanceEffect != CONST_ANI_NONE) {
-			addDistanceEffect(caster->getPosition(), target->getPosition(), params.distanceEffect);
+			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
 		}
 	}
 
@@ -1310,7 +1401,7 @@ void Combat::doCombatMana(Creature* caster, Creature* target, CombatDamage& dama
 		}
 
 		if (caster && params.distanceEffect != CONST_ANI_NONE) {
-			addDistanceEffect(caster->getPosition(), target->getPosition(), params.distanceEffect);
+			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
 		}
 	}
 }
@@ -1339,7 +1430,7 @@ void Combat::doCombatCondition(Creature* caster, Creature* target, const CombatP
 		}
 
 		if (caster && params.distanceEffect != CONST_ANI_NONE) {
-			addDistanceEffect(caster->getPosition(), target->getPosition(), params.distanceEffect);
+			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
 		}
 	}
 }
@@ -1363,7 +1454,7 @@ void Combat::doCombatDispel(Creature* caster, Creature* target, const CombatPara
 		}
 
 		if (caster && params.distanceEffect != CONST_ANI_NONE) {
-			addDistanceEffect(caster->getPosition(), target->getPosition(), params.distanceEffect);
+			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
 		}
 	}
 }
@@ -1388,7 +1479,7 @@ void Combat::doCombatDefault(Creature* caster, Creature* target, const CombatPar
 		*/
 
 		if (caster && params.distanceEffect != CONST_ANI_NONE) {
-			addDistanceEffect(caster->getPosition(), target->getPosition(), params.distanceEffect);
+			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
 		}
 	}
 }
@@ -1437,11 +1528,11 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 			Item* weapon = player->getWeapon();
 			if (useCharges && weapon) {
 				const ItemType& itemType = Item::items.getItemType(weapon->getID());
-				if (itemType.charges) {
+					if (itemType.charges) {
 					int32_t newCount = std::max<int32_t>(0, weapon->getCharges() - 1);
-					if (newCount <= 0) {
+						if (newCount <= 0) {
 						g_game.internalRemoveItem(weapon);
-					} else {
+						} else {
 						g_game.transformItem(weapon, weapon->getID(), newCount);
 					}
 				}
@@ -1883,7 +1974,7 @@ void MagicField::onStepInField(Creature* creature)
 			}
 
 			if (!harmfulField || (OTSYS_TIME() - createTime <= 5000) || creature->hasBeenAttacked(ownerId)) {
-				conditionCopy->setParam(CONDITION_PARAM_OWNER, ownerId);
+                conditionCopy->setParam(CONDITION_PARAM_OWNER, ownerId);
 			}
 		}
 

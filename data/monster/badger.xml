@@ -22,6 +22,5 @@
 	</defenses>
 	<loot>
 		<item id="3577" countmax="1" chance="400" /> <!-- meat -->
-		<item id="3492" countmax="1" chance="100" /> <!-- a worm -->
 	</loot>
 </monster>

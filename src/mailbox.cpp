@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
 
 extern Game g_game;
 
-ReturnValue Mailbox::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t, Creature*) const
+ReturnValue Mailbox::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t, Creature* creature) const
 {
 	const Item* item = thing.getItem();
 	if (item && Mailbox::canSend(item)) {
@@ -115,6 +115,18 @@ bool Mailbox::sendItem(Item* item) const
 				item, item->getItemCount(), nullptr, FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
 				g_game.transformItem(item, item->getID() + 1);
 				player->onReceiveMail();
+
+				//19:33 You sent mail to yourself to Edron.
+				//You have received mail from X to Edron.
+				std::ostringstream ss;
+				if (g_game.parcel_sending_player == player->getName()) {
+					ss << "You sent mail to yourself to " << town->getName() << '.';
+				}
+				else {
+					ss << "New mail has arrived from " << g_game.parcel_sending_player << " to " << town->getName() << '.';
+				}
+
+				player->sendTextMessage(MESSAGE_INFO_DESCR, ss.str());
 				return true;
 			}
 		}

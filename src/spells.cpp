@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -687,7 +687,7 @@ bool Spell::playerRuneSpellCheck(Player* player, const Position& toPos)
 		return false;
 	}
 
-	const Creature* topVisibleCreature = tile->getTopCreature();
+	const Creature* topVisibleCreature = tile->getBottomCreature();
 	if (blockingCreature && topVisibleCreature) {
 		player->sendCancelMessage(RETURNVALUE_NOTENOUGHROOM);
 		g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
@@ -1427,9 +1427,9 @@ bool InstantSpell::Levitate(const InstantSpell*, Creature* creature, const std::
 	if (strcasecmp(param.c_str(), "up") == 0) {
 		if (currentPos.z != 8) {
 			Tile* tmpTile = g_game.map.getTile(currentPos.x, currentPos.y, currentPos.getZ() - 1);
-			if (tmpTile == nullptr || (tmpTile->getGround() == nullptr && !tmpTile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID))) {
+			if (tmpTile == nullptr || (tmpTile->getGround() == nullptr && !tmpTile->hasFlag(TILESTATE_BLOCKSOLID))) {
 				tmpTile = g_game.map.getTile(destPos.x, destPos.y, destPos.getZ() - 1);
-				if (tmpTile && tmpTile->getGround() && !tmpTile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID)) {
+				if (tmpTile && tmpTile->getGround() && !tmpTile->hasFlag(TILESTATE_BLOCKSOLID)) {
 					ret = g_game.internalMoveCreature(*player, *tmpTile, FLAG_IGNOREBLOCKITEM | FLAG_IGNOREBLOCKCREATURE);
 				}
 			}
@@ -1439,7 +1439,7 @@ bool InstantSpell::Levitate(const InstantSpell*, Creature* creature, const std::
 			Tile* tmpTile = g_game.map.getTile(destPos);
 			if (tmpTile == nullptr || (tmpTile->getGround() == nullptr && !tmpTile->hasFlag(TILESTATE_BLOCKSOLID))) {
 				tmpTile = g_game.map.getTile(destPos.x, destPos.y, destPos.z + 1);
-				if (tmpTile && tmpTile->getGround() && !tmpTile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID)) {
+				if (tmpTile && tmpTile->getGround() && !tmpTile->hasFlag(TILESTATE_BLOCKSOLID)) {
 					ret = g_game.internalMoveCreature(*player, *tmpTile, FLAG_IGNOREBLOCKITEM | FLAG_IGNOREBLOCKCREATURE);
 				}
 			}
@@ -1579,7 +1579,7 @@ bool ConjureSpell::conjureItem(Creature* creature) const
 		}
 
 		item = player->getInventoryItem(CONST_SLOT_RIGHT);
-		if (item && item->getID() == reagentId && player->getMana() >= conjureCost) {
+		if (item && item->getID() == reagentId && (!player->isAccessPlayer() && player->getMana() >= conjureCost)) {
 			foundReagent = true;
 
 			// right arm conjure
@@ -1784,8 +1784,10 @@ ReturnValue RuneSpell::canExecuteAction(const Player* player, const Position& to
 	}
 
 	ReturnValue ret = Action::canExecuteAction(player, toPos);
-	if (ret != RETURNVALUE_NOERROR) {
-		return ret;
+	if(ret != RETURNVALUE_NOERROR)
+	{
+		if(ret != RETURNVALUE_CANNOTTHROW || !g_game.canThrowObjectTo(player->getPosition(), toPos, true, Map::maxClientViewportX, Map::maxClientViewportY, MAPPATH_RUNE))
+			return ret;
 	}
 
 	if (toPos.x == 0xFFFF) {
@@ -1815,7 +1817,7 @@ bool RuneSpell::executeUse(Player* player, Item* item, const Position&, Thing* t
 			if (target == nullptr) {
 				Tile* toTile = g_game.map.getTile(toPosition);
 				if (toTile) {
-					const Creature* visibleCreature = toTile->getTopCreature();
+					const Creature* visibleCreature = toTile->getBottomCreature();
 					if (visibleCreature) {
 						var.number = visibleCreature->getID();
 					}

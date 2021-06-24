@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# gurbasch.npc: Datenbank für den Kapitän Gurbasch
+# gurbasch.npc: Datenbank fï¿½r den Kapitï¿½n Gurbasch
 
 Name = "Gurbasch"
 Outfit = (66,0-0-0-0)
@@ -54,8 +54,6 @@ VANISH,!           -> "No patience, these brats!"
 
 "kazordoon",QuestValue(250)>2 -> Price=150,  "Do you want to go to Kazordoon? And try the beer there? %P gold?", Topic=1
 "passage",QuestValue(250)>2   -> *
-
-Topic=1,"yes",PZBlock,! -> "First get rid of those blood stains! You are not going to ruin my vehicle!"
 
 Topic=1,"yes",Premium,CountMoney>=Price -> "Full steam ahead!", DeleteMoney, Idle, EffectOpp(3), Teleport(32658,31957,15), EffectOpp(3)
 Topic=1,"yes",CountMoney>=Price         -> "I'm sorry, but you need a premium account in order to travel onboard our ships."

@@ -84,8 +84,6 @@ VANISH                                    -> "Farewell, human."
 
 "amulets"        -> "I'm selling and buying strange talismans, silver amulets, protection amulets and dragon necklaces."
 "rings"          -> "I'm selling and buying might rings, energy rings, life rings, time rings, dwarven rings and rings of healing."
-"rods"           -> "I'm buying snakebite rods, moonlight rods, volcanic rods, quagmire rods and tempest rods."
-"wands"          -> "I'm not interested in wands."
 "special"        -> "I'm currently looking for some special items. Do you have any ankhs or a mysterious fetish?"
 
 "might","ring"     		   -> Type=3048, Amount=1, Price=5000, "Do you want to buy a might ring for %P gold?", Topic=10

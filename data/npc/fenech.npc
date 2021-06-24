@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# fenech.npc: Datenbank für den pyramidenhändler Fenech
+# fenech.npc: Datenbank fï¿½r den pyramidenhï¿½ndler Fenech
 
 Name = "Fenech"
 Outfit = (132,76-40-49-117)
@@ -20,7 +20,7 @@ VANISH,!           -> "May enlightenment be your path."
 
 "bye"      -> "May enlightenment be your path.", Idle
 "farewell" -> *
-"job"      -> "I sell runes, wands, rods and spellbooks."
+"job"      -> "I sell blank runes and spellbooks."
 "offer"    -> *
 "name"     -> "I am the mourned Fenech."
 "time"     -> "Buy a watch on the bazar."
@@ -50,7 +50,7 @@ VANISH,!           -> "May enlightenment be your path."
 "ascension"         -> "Ask the priest in the temple."
 "Akh'rah","Uthun"   -> *
 
-"rune"         -> "I sell blank runes and spell runes."
+"rune"         -> "I sell blank runes."
 "blank","rune" -> Type=3147, Amount=1, Price=10,  "Do you want to buy a blank rune for %P gold?", Topic=1
 "spellbook"    -> Type=3059, Amount=1, Price=150, "Do you want to buy a spellbook for %P gold?", Topic=1
 

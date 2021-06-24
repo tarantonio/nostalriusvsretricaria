@@ -38,9 +38,6 @@ VANISH,!                    -> "Take care out there, young one. <cough>"
 "blank","rune"         -> *
 "spellbook"            -> *
 
-
-sorcerer,"wand",QuestValue(333)<1  -> "Oh, you did not purchase your first magical wand yet? Please take this little present from me as your magic teacher!",SetQuestValue(333,1),Type=3074, Amount=1,Create(Type)
-
 "spell",Sorcerer -> "I can teach you rune spells and instant spells. What kind of spell do you wish to learn? You can also tell me for which level you would like to learn a spell, if you prefer that.", Topic=2
 "spell"          -> "Sorry, I only sell spells to Sorcerers."
 

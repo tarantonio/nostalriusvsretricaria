@@ -1,4 +1,7 @@
 function onStepIn(creature, item, position, fromPosition)
-	local player = Player(creature)
-	player:setStorageValue(260, 0)
+	doRelocate(item:getPosition(),{x = 32782, y = 32331, z = 7})
+end
+
+function onAddItem(item, tileitem, position)
+	doRelocate(item:getPosition(),{x = 32782, y = 32331, z = 7})
 end

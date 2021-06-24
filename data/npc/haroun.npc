@@ -86,7 +86,7 @@ VANISH                                    -> "Farewell, human."
 "weapon"          -> "I'm afraid I do not trade with weapons or armour. Nah'bob only deals with magical equipment."
 "armor"           -> *
 "armour"          -> *
-"wares"           -> "I only deal with magical equipment. Our range of goods include amulets, rings, wands and some special items."
+"wares"           -> "I only deal with magical equipment. Our range of goods include amulets, rings and some special items."
 "offer"           -> *
 "goods"           -> *
 "equipment"       -> *
@@ -96,8 +96,6 @@ VANISH                                    -> "Farewell, human."
 
 "amulets"        -> "I'm selling and buying bronze amulets, stone skin amulets, elven amulets and garlic necklaces."
 "rings"          -> "I'm selling and buying stealth rings, power rings, sword rings, axe rings, and club rings."
-"wands"          -> "I'm buying wands of vortex, wands of dragonbreath, wands of plague, wands of cosmic energy and wands of inferno as well as magic light wands."
-"rods"           -> "I'm not interested in rods."
 "special"        -> "I'm selling and buying magic light wands. I'm currently also looking for mind stones, life crystals and orbs."
 
 "light"                    -> Type=3046, Amount=1, Price=120, "Do you want to buy a magic light wand for %P gold?", Topic=10
@@ -149,18 +147,6 @@ VANISH                                    -> "Farewell, human."
 "sell",%1,1<%1,"mind","stone"             -> Type=3062, Amount=%1, Price=100*%1, "Do you want to sell %A mind stones for %P gold?", Topic=11
 "sell",%1,1<%1,"life","crystal"           -> Type=3061, Amount=%1, Price=50*%1, "Do you want to sell %A life crystals for %P gold?", Topic=11
 "sell",%1,1<%1,"orb"           	          -> Type=3060, Amount=%1, Price=750*%1, "Do you want to sell %A orbs for %P gold?", Topic=11
-
-"sell","wand","of","vortex"            -> Type=3074, Amount=1,  Price=100,   "Do you want to sell a wand of vortex for %P gold?", Topic=11
-"sell","wand","of","dragonbreath"      -> Type=3075, Amount=1,  Price=200,   "Do you want to sell a wand of dragonbreath for %P gold?", Topic=11
-"sell","wand","of","plague"            -> Type=3072, Amount=1,  Price=1000,   "Do you want to sell a wand of plague for %P gold?", Topic=11
-"sell","wand","of","cosmic","energy"   -> Type=3073, Amount=1,  Price=2000,  "Do you want to sell a wand of cosmic energy for %P gold?", Topic=11
-"sell","wand","of","inferno"           -> Type=3071, Amount=1,  Price=3000,  "Do you want to sell a wand of inferno for %P gold?", Topic=11
-
-"sell",%1,1<%1,"wand","of","vortex"              -> Type=3074, Amount=%1,  Price=100*%1,   "Do you want to sell %A wands of vortex for %P gold?", Topic=11
-"sell",%1,1<%1,"wand","of","dragonbreath"        -> Type=3075, Amount=%1,  Price=200*%1,   "Do you want to sell %A wands of dragonbreath for %P gold?", Topic=11
-"sell",%1,1<%1,"wand","of","plague"              -> Type=3072, Amount=%1,  Price=1000*%1,  "Do you want to sell %A wands of plague for %P gold?", Topic=11
-"sell",%1,1<%1,"wand","of","cosmic","energy"     -> Type=3073, Amount=%1,  Price=2000*%1,  "Do you want to sell %A wands of cosmic energy for %P gold?", Topic=11
-"sell",%1,1<%1,"wand","of","inferno"             -> Type=3071, Amount=%1,  Price=3000*%1,  "Do you want to sell %A wands of inferno for %P gold?", Topic=11
 
 Topic=10,QuestValue(283)<3,!     -> "I'm sorry, human. But you need Gabel's permission to trade with me."
 Topic=10,"yes",CountMoney>=Price -> "Thank you. May it bring you luck!", DeleteMoney, Create(Type)

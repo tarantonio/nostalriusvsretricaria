@@ -37,9 +37,6 @@ VANISH,!           -> "... Good... Bye"
 Druid,"spell"  -> "... Spells... rune spells... instant spells... what you want? ... Or for which level?", Topic=2
 "spell"        -> "... Only druids..."
 
-druid,"rod",QuestValue(333)<1  -> "Oooh... present from meee... take it... goooood start for youuuung druuuids...",SetQuestValue(333,1),Type=3066, Amount=1,Create(Type)
-
-
 Topic=2,"rune","spell"        -> "... Attack rune spells ... healing rune spells ... support rune spells ... summon rune spells. Which...?"
 Topic=2,"instant","spell"     -> "... Healing spells ... supply spells ... support spells ... summon spells. Which...?"
 Topic=2,"level"               -> "Which level...?", Topic=2

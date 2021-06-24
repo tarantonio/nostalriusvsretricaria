@@ -59,7 +59,7 @@
 	<house name="Upper Swamp Lane 8" houseid="57" entryx="32398" entryy="32256" entryz="7" rent="16040" townid="1" size="120" />
 	<house name="Southern Thais Guildhall" houseid="58" entryx="32401" entryy="32254" entryz="7" rent="43020" guildhall="true" townid="1" size="263" />
 	<house name="Upper Swamp Lane 10" houseid="59" entryx="32412" entryy="32256" entryz="7" rent="3920" townid="1" size="23" />
-	<house name="Upper Swamp Lane 12" houseid="60" entryx="32419" entryy="32256" entryz="7" rent="7400" townid="1" size="43" />
+	<house name="Upper Swamp Lane 12" houseid="60" entryx="32419" entryy="32256" entryz="7" rent="7400" townid="1" size="44" />
 	<house name="Sorcerer's Avenue 1a" houseid="61" entryx="32300" entryy="32254" entryz="7" rent="2410" townid="1" size="15" />
 	<house name="Sorcerer's Avenue 1b" houseid="62" entryx="32300" entryy="32251" entryz="6" rent="1970" townid="1" size="12" />
 	<house name="Sorcerer's Avenue 1c" houseid="63" entryx="32300" entryy="32249" entryz="6" rent="2410" townid="1" size="15" />
@@ -120,10 +120,10 @@
 	<house name="Fibula Village, Tower Flat" houseid="118" entryx="32159" entryy="32439" entryz="7" rent="10110" townid="1" size="62" />
 	<house name="Fibula Village, Bar" houseid="119" entryx="32151" entryy="32399" entryz="7" rent="10370" townid="1" size="56" />
 	<house name="Fibula Clanhall" houseid="120" entryx="32178" entryy="32373" entryz="7" rent="21960" guildhall="true" townid="1" size="122" />
-	<house name="Fibula Village, Villa" houseid="121" entryx="32140" entryy="32374" entryz="7" rent="22380" townid="1" size="182" />
-	<house name="The Tibianic" houseid="122" entryx="32277" entryy="32011" entryz="5" rent="66900" guildhall="true" townid="1" size="433" />
+	<house name="Fibula Village, Villa" houseid="121" entryx="32140" entryy="32374" entryz="7" rent="22380" townid="1" size="193" />
+	<house name="The Tibianic" houseid="122" entryx="32271" entryy="32020" entryz="6" rent="66900" guildhall="true" townid="1" size="500" />
 	<house name="Castle of Greenshore" houseid="123" entryx="32290" entryy="32070" entryz="7" rent="36380" guildhall="true" townid="1" size="243" />
-	<house name="Greenshore Village, Villa" houseid="124" entryx="32276" entryy="32045" entryz="7" rent="20580" townid="1" size="112" />
+	<house name="Greenshore Village, Villa" houseid="124" entryx="32276" entryy="32045" entryz="7" rent="20580" townid="1" size="121" />
 	<house name="Greenshore Village, Shop" houseid="125" entryx="32278" entryy="32052" entryz="7" rent="3600" townid="1" size="20" />
 	<house name="Greenshore Village 1" houseid="126" entryx="32274" entryy="32062" entryz="7" rent="4640" townid="1" size="29" />
 	<house name="Greenshore Village 2" houseid="127" entryx="32264" entryy="32042" entryz="7" rent="1560" townid="1" size="9" />
@@ -192,7 +192,7 @@
 	<house name="Magician's Alley 5f" houseid="190" entryx="32322" entryy="31807" entryz="6" rent="2200" townid="2" size="15" />
 	<house name="Magician's Alley 4" houseid="191" entryx="32317" entryy="31820" entryz="7" rent="5200" townid="2" size="39" />
 	<house name="Magician's Alley 8" houseid="192" entryx="32331" entryy="31819" entryz="7" rent="2700" townid="2" size="20" />
-	<house name="Carlin Clanhall" houseid="193" entryx="32307" entryy="31818" entryz="7" rent="22700" guildhall="true" townid="2" size="156" />
+	<house name="Carlin Clanhall" houseid="193" entryx="32307" entryy="31818" entryz="7" rent="22700" guildhall="true" townid="2" size="164" />
 	<house name="Northern Street 1a" houseid="194" entryx="32356" entryy="31767" entryz="7" rent="1780" townid="2" size="15" />
 	<house name="Northern Street 1b" houseid="195" entryx="32356" entryy="31767" entryz="6" rent="1780" townid="2" size="15" />
 	<house name="Northern Street 1c" houseid="196" entryx="32357" entryy="31767" entryz="6" rent="1380" townid="2" size="10" />
@@ -217,9 +217,9 @@
 	<house name="Harbour Flats, Flat 23" houseid="215" entryx="32385" entryy="31843" entryz="5" rent="800" townid="2" size="7" />
 	<house name="East Lane 1a" houseid="216" entryx="32393" entryy="31796" entryz="7" rent="4420" townid="2" size="47" />
 	<house name="East Lane 1b" houseid="217" entryx="32396" entryy="31801" entryz="6" rent="3300" townid="2" size="34" />
-	<house name="East Lane 2" houseid="218" entryx="32399" entryy="31798" entryz="7" rent="9060" townid="2" size="83" />
+	<house name="East Lane 2" houseid="218" entryx="32399" entryy="31798" entryz="7" rent="9060" townid="2" size="86" />
 	<house name="Suntower" houseid="219" entryx="32341" entryy="31847" entryz="7" rent="19360" guildhall="true" townid="2" size="188" />
-	<house name="Lonely Sea Side Hostel" houseid="220" entryx="32319" entryy="31839" entryz="7" rent="23660" townid="2" size="203" />
+	<house name="Lonely Sea Side Hostel" houseid="220" entryx="32319" entryy="31839" entryz="7" rent="23660" townid="2" size="222" />
 	<house name="Northport Village 1" houseid="221" entryx="32482" entryy="31614" entryz="7" rent="2850" townid="2" size="19" />
 	<house name="Northport Village 2" houseid="222" entryx="32482" entryy="31609" entryz="7" rent="2850" townid="2" size="19" />
 	<house name="Northport Village 3" houseid="223" entryx="32482" entryy="31611" entryz="6" rent="10770" townid="2" size="89" />
@@ -651,7 +651,7 @@
 	<house name="Cormaya 2" houseid="649" entryx="33297" entryy="31968" entryz="7" rent="7220" townid="5" size="64" />
 	<house name="Cormaya 3" houseid="650" entryx="33304" entryy="31978" entryz="7" rent="3970" townid="5" size="37" />
 	<house name="Cormaya 4" houseid="651" entryx="33292" entryy="31982" entryz="7" rent="3340" townid="5" size="30" />
-	<house name="Cormaya 5" houseid="652" entryx="33278" entryy="31980" entryz="7" rent="11000" townid="5" size="80" />
+	<house name="Cormaya 5" houseid="652" entryx="33278" entryy="31980" entryz="7" rent="11000" townid="5" size="93" />
 	<house name="Cormaya 6" houseid="653" entryx="33287" entryy="31988" entryz="7" rent="4690" townid="5" size="45" />
 	<house name="Cormaya 7" houseid="654" entryx="33287" entryy="31994" entryz="7" rent="4690" townid="5" size="45" />
 	<house name="Cormaya 8" houseid="655" entryx="33287" entryy="32000" entryz="7" rent="5320" townid="5" size="51" />

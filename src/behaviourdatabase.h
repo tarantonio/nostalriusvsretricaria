@@ -1,6 +1,6 @@
 /**
-* Tibia GIMUD Server - a free and open-source MMORPG server emulator
-* Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+* The Forgotten Server - a free and open-source MMORPG server emulator
+* Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -34,10 +34,11 @@ enum BehaviourSituation_t
 enum NpcBehaviourType_t
 {
 	BEHAVIOUR_TYPE_NOP = 0, // returns true on conditions
+	BEHAVIOUR_TYPE_FULL_DIGIT, // allows MESSAGE_COUNT to support full digits counts (over 500), for bank system
 	BEHAVIOUR_TYPE_STRING, // match string, or NPC say
 	BEHAVIOUR_TYPE_NUMBER, // return a number
 	BEHAVIOUR_TYPE_OPERATION, // <, =, >, >=, <=, <>
-	BEHAVIOUR_TYPE_MESSAGE_COUNT, // get quantity in player message
+	BEHAVIOUR_TYPE_MESSAGE_COUNT, // % get quantity in player message
 	BEHAVIOUR_TYPE_IDLE, // idle npc
 	BEHAVIOUR_TYPE_QUEUE, // queue talking creature
 	BEHAVIOUR_TYPE_TOPIC, // get/set topic
@@ -45,7 +46,6 @@ enum NpcBehaviourType_t
 	BEHAVIOUR_TYPE_DATA, // get/set data
 	BEHAVIOUR_TYPE_ITEM, // get/set item
 	BEHAVIOUR_TYPE_AMOUNT, // get/set amount
-	BEHAVIOUR_TYPE_TEXT, // get/set string
 	BEHAVIOUR_TYPE_HEALTH, // get/set health
 	BEHAVIOUR_TYPE_COUNT, // count amount of items
 	BEHAVIOUR_TYPE_CREATEMONEY, // create money
@@ -85,6 +85,12 @@ enum NpcBehaviourType_t
 	BEHAVIOUR_TYPE_BLESS, // add blessing to player
 	BEHAVIOUR_TYPE_CREATECONTAINER, // create a container of an item in particular
 	BEHAVIOUR_TYPE_TOWN, // change player town
+	BEHAVIOUR_TYPE_ADDOUTFIT, // give outfit to player
+	BEHAVIOUR_TYPE_ADDADDON, // give addon to player
+	BEHAVIOUR_TYPE_HASOUTFIT, // check outfit of player
+	BEHAVIOUR_TYPE_SETMAGICLEVEL, // change player magic level
+	BEHAVIOUR_TYPE_SETLEVEL, // change player level
+	BEHAVIOUR_TYPE_SETSKILL, // change player skills
 };
 
 enum NpcBehaviourOperator_t
@@ -257,11 +263,13 @@ class BehaviourDatabase
 
 		bool checkCondition(const NpcBehaviourCondition* condition, Player* player, const std::string& message);
 		void checkAction(const NpcBehaviourAction* action, Player* player, const std::string& message);
+        bool validateAction(const NpcBehaviourAction* action, Player* player, const std::string& message);
+        void say(const std::string& words);
 
-		int32_t evaluate(NpcBehaviourNode* node, Player* player, const std::string& message = "");
+		int64_t evaluate(NpcBehaviourNode* node, Player* player, const std::string& message = "");
 
-		int32_t checkOperation(Player* player, NpcBehaviourNode* node, const std::string& message);
-		int32_t searchDigit(const std::string& message);
+		int64_t checkOperation(Player* player, NpcBehaviourNode* node, const std::string& message);
+		int64_t searchDigit(const std::string& message);
 		bool searchWord(const std::string& pattern, const std::string& message);
 
 		std::string parseResponse(Player* player, const std::string& message);
@@ -270,14 +278,14 @@ class BehaviourDatabase
 		void idle();
 		void reset();
 
-		int32_t topic;
-		int32_t data;
-		int32_t type;
-		int32_t price;
-		int32_t amount;
-		int32_t delay;
+		std::unordered_map<uint64_t, int64_t> topic;
+		std::unordered_map<uint64_t, int64_t> data;
+		std::unordered_map<uint64_t, int64_t> type;
+		std::unordered_map<uint64_t, int64_t> price;
+		std::unordered_map<uint64_t, int64_t> amount;
+		int64_t delay;
 
-		std::string string;
+		bool full_digit = false;
 
 		Npc* npc = nullptr;
 		NpcBehaviour* previousBehaviour = nullptr;
@@ -287,7 +295,6 @@ class BehaviourDatabase
 		std::vector<uint32_t> delayedEvents;
 		std::list<NpcBehaviour*> behaviourEntries;
 		std::recursive_mutex mutex;
-
 };
 
 #endif

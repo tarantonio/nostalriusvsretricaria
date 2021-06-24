@@ -33,6 +33,5 @@
 		<item id="3286" countmax="1" chance="45" /> <!-- a mace -->
 		<item id="3577" countmax="1" chance="200" /> <!-- meat -->
 		<item id="3264" countmax="1" chance="30" /> <!-- a sword -->
-		<item id="3492" countmax="5" chance="500" /> <!-- a worm -->
 	</loot>
 </monster>

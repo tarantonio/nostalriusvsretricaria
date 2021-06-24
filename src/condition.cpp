@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -164,6 +164,7 @@ Condition* Condition::createCondition(ConditionId_t id, ConditionType_t type, in
 		case CONDITION_PACIFIED:
 		case CONDITION_MANASHIELD:
 		case CONDITION_AGGRESSIVE:
+		case CONDITION_ANTIPUSH:
 			return new ConditionGeneric(id, type, ticks, subId);
 
 		default:
@@ -241,6 +242,10 @@ uint32_t Condition::getIcons() const
 
 bool Condition::updateCondition(const Condition* addCondition)
 {
+	if (conditionType == CONDITION_SOUL && addCondition->getType() == CONDITION_SOUL) {
+		return true;
+	}
+
 	if (conditionType != addCondition->getType()) {
 		return false;
 	}
@@ -756,7 +761,7 @@ bool ConditionSoul::setParam(ConditionParam_t param, int32_t value)
 
 bool ConditionDamage::setParam(ConditionParam_t param, int32_t value)
 {
-	Condition::setParam(param, value);
+	bool ret = Condition::setParam(param, value);
 
 	switch (param) {
 		case CONDITION_PARAM_OWNER:
@@ -856,14 +861,14 @@ bool ConditionDamage::startCondition(Creature* creature)
 
 	if (factor_percent <= 9) {
 		factor_percent = 10;
-	}
+}
 
 	if (factor_percent >= 1001) {
 		factor_percent = 1000;
 	}
 
 	if (hit_damage) {
-		doDamage(creature, -hit_damage);
+		doDamage(creature, -hit_damage, true);
 	}
 
 	return true;
@@ -880,10 +885,10 @@ bool ConditionDamage::executeCondition(Creature* creature, int32_t)
 				doDamage(creature, -10);
 			} else {
 				--count;
-			}
+	}
 		} else {
-			return false;
-		}
+		return false;
+	}
 	} else if (conditionType == CONDITION_POISON) {
 		const int32_t r_cycle = cycle;
 		if (r_cycle) {
@@ -892,16 +897,16 @@ bool ConditionDamage::executeCondition(Creature* creature, int32_t)
 				int32_t f = factor_percent * r_cycle / 1000;
 				if (!f) {
 					f = 2 * (r_cycle > 0) - 1;
-				}
+}
 
 				cycle = r_cycle - f;
 				doDamage(creature, -f);
 			} else {
 				--count;
-			}
-		} else {
-			return false;
 		}
+			} else {
+			return false;
+			}
 	} else if (conditionType == CONDITION_ENERGY) {
 		const int32_t r_cycle = cycle;
 		if (r_cycle) {
@@ -911,16 +916,16 @@ bool ConditionDamage::executeCondition(Creature* creature, int32_t)
 				doDamage(creature, -25);
 			} else {
 				--count;
-			}
+		}
 		} else {
 			return false;
-		}
 	}
-
-	return true;
 }
 
-bool ConditionDamage::doDamage(Creature* creature, int32_t healthChange)
+		return true;
+	}
+
+bool ConditionDamage::doDamage(Creature* creature, int32_t healthChange, bool field)
 {
 	if (creature->isSuppress(getType())) {
 		return true;
@@ -939,10 +944,10 @@ bool ConditionDamage::doDamage(Creature* creature, int32_t healthChange)
 		return false;
 	}
 
-	if (g_game.combatBlockHit(damage, attacker, creature, false, false, true)) {
+	if (g_game.combatBlockHit(damage, attacker, creature, false, false, field)) {
 		return false;
 	}
-	return g_game.combatChangeHealth(attacker, creature, damage);
+	return g_game.combatChangeHealth(attacker, creature, damage, false);
 }
 
 void ConditionDamage::endCondition(Creature*)
@@ -959,7 +964,7 @@ void ConditionDamage::addCondition(Creature* creature, const Condition* addCondi
 	const ConditionDamage& conditionDamage = static_cast<const ConditionDamage&>(*addCondition);
 
 	if (hit_damage) {
-		doDamage(creature, -conditionDamage.hit_damage);
+		doDamage(creature, -conditionDamage.hit_damage, true);
 	}
 
 	if (!updateCondition(addCondition)) {
@@ -1030,7 +1035,7 @@ bool ConditionSpeed::startCondition(Creature* creature)
 		speedDelta = normal_random(-variation, variation) + speedDelta;
 
 		if (speedDelta >= -100) {
-			speedDelta = static_cast<int32_t>(creature->getBaseSpeed()) * speedDelta / 100;
+		speedDelta = static_cast<int32_t>(creature->getBaseSpeed()) * speedDelta / 100;
 		} else {
 			speedDelta = -20 - creature->getBaseSpeed();
 		}
@@ -1110,6 +1115,21 @@ bool ConditionInvisible::startCondition(Creature* creature)
 {
 	if (!Condition::startCondition(creature)) {
 		return false;
+	}
+
+	if (Player* player = creature->getPlayer()) {
+		int32_t value = 0;
+		if (player->getStorageValue(100004, value)) {
+			if (value > 0) {
+				return false;
+			}
+		}
+
+		if (player->getStorageValue(120003, value)) {
+			if (value > 0) {
+				return false;
+			}
+		}
 	}
 
 	g_game.internalCreatureChangeVisible(creature, false);

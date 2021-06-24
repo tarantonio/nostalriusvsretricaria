@@ -28,6 +28,5 @@
 		<item id="3607" countmax="1" chance="300" /> <!-- cheese -->
 		<item id="3598" countmax="1" chance="10" /> <!-- a cookie -->
 		<item id="3031" countmax="2" chance="850" /> <!-- a gold coin -->
-		<item id="3492" countmax="3" chance="500" /> <!-- a worm -->
 	</loot>
 </monster>

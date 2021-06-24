@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# shiriel.npc: Datenbank für die Magiehändlerin Shiriel (Elfenstadt)
+# shiriel.npc: Datenbank fï¿½r die Magiehï¿½ndlerin Shiriel (Elfenstadt)
 
 Name = "Shiriel"
 Outfit = (144,2-103-0-95)
@@ -20,7 +20,7 @@ VANISH,!                 -> "Asha Thrazi."
 "bye"           -> "Asha Thrazi.", Idle
 "asha","thrazi" -> *
 "farewell"      -> *
-"job"           -> "I sell mystic runes, spellbooks, wands, rods and fluids of life or mana."
+"job"           -> "I sell blank runes, spellbooks and fluids of life or mana."
 "name"          -> "I am Shiriel Sharaziel."
 "time"          -> "Time was mastered by my people long ago."
 
@@ -39,7 +39,7 @@ VANISH,!                 -> "Asha Thrazi."
 "news"          -> "News are secrets and you are not worthy of my secrets."
 "magic"         -> "I could teach you some spells ... but I won't."
 
-"rune"          -> "I sell blank runes and spell runes."
+"rune"          -> "I sell blank runes."
 "life","fluid"  -> Type=2874, Data=11, Amount=1, Price=60, "Do you want to buy life fluid for %P gold?", Topic=2
 "mana","fluid"  -> Type=2874, Data=10, Amount=1, Price=55, "Do you want to buy mana fluid for %P gold?", Topic=2
 "blank","rune"  -> Type=3147, Amount=1, Price=10, "Do you want to buy a blank rune for %P gold?", Topic=1

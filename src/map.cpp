@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -464,7 +464,8 @@ void Map::clearSpectatorCache()
 }
 
 bool Map::canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight /*= true*/,
-                           int32_t rangex /*= Map::maxClientViewportX*/, int32_t rangey /*= Map::maxClientViewportY*/) const
+                           int32_t rangex /*= Map::maxClientViewportX*/, int32_t rangey /*= Map::maxClientViewportY*/,
+						   MapPathFinding_t path/*= MAPPATH_NONE*/) const
 {
 	//z checks
 	//underground 8->15
@@ -490,15 +491,16 @@ bool Map::canThrowObjectTo(const Position& fromPos, const Position& toPos, bool 
 	if (!checkLineOfSight) {
 		return true;
 	}
-	return isSightClear(fromPos, toPos, false);
+	return isSightClear(fromPos, toPos, false, path);
 }
 
-bool Map::checkSightLine(const Position& fromPos, const Position& toPos) const
+bool Map::checkSightLine(const Position fromPos, const Position toPos, MapPathFinding_t path/*= MAPPATH_NONE*/) const
 {
-	if (fromPos == toPos) {
-		return true;
-	}
+	return checkSightSpellLine(fromPos, toPos);
+}
 
+bool Map::checkSightSpellLine(const Position fromPos, const Position toPos) const
+{
 	Position start(fromPos.z > toPos.z ? toPos : fromPos);
 	Position destination(fromPos.z > toPos.z ? fromPos : toPos);
 
@@ -509,31 +511,139 @@ bool Map::checkSightLine(const Position& fromPos, const Position& toPos) const
 	int32_t B = Position::getOffsetX(start, destination);
 	int32_t C = -(A * destination.x + B * destination.y);
 
-	while (start.x != destination.x || start.y != destination.y) {
+	int32_t move_x = std::abs(start.x - destination.x),
+			move_y = std::abs(start.y - destination.y);
+	
+	uint16_t countX = move_y != 0 ? std::max(0, (move_x - 1) / move_y) : 0,
+			 countY = move_x != 0 ? std::max(0, (move_y - 1) / move_x) : 0;
+	
+	int16_t check = 0;
+	while(start.x != destination.x || start.y != destination.y)
+	{
+		bool useDefault = false, checkAlgorithm = true;
+		if(check <= 1)
+		{
+			if(check == 0 && A < 0 && B > 0)
+			{
+				// north west -1, -1
+				if(start.y != destination.y)
+					start.y += my;
+				
+				if(start.x != destination.x)
+					start.x += mx;
+				
+				checkAlgorithm = false;
+			}
+			else if(A > 0 && B > 0)
+			{
+				// south west  1, 1
+				if(move_y > move_x)
+				{
+					if(start.x != destination.x)
+						start.x += mx;
+					
+					if(start.y != destination.y)
+						start.y += my;
+					
+					checkAlgorithm = false;
+				}
+			}
+			else if(check == 0 && A < 0 && B < 0)
+			{
+				// north east -1, -1
+				if(move_x > move_y)
+				{
+					if(start.x != destination.x)
+						start.x += mx;
+					
+					if(start.y != destination.y)
+						start.y += my;
+					
+					checkAlgorithm = false;
+				}
+			}
+		}
+		
+		++check;
+		if(checkAlgorithm)
+		{
+			if(move_x > move_y)
+			{
+				if(check <= countX)
+				{
+					if(start.x != destination.x)
+						start.x += mx;
+				}
+				else if(check == countX + 1)
+				{
+					if(start.x != destination.x)
+						start.x += mx;
+					
+					if(move_x <= move_y + 1)
+					{
+						if(start.y != destination.y)
+							start.y += my;
+					}
+					
+					// check = 1;
+				}
+				else
+					useDefault = true;
+			}
+			else if(move_y > move_x)
+			{
+				if(check <= countY)
+				{
+					if(start.y != destination.y)
+						start.y += my;
+				}
+				else if(check == countY + 1)
+				{
+					if(start.x != destination.x)
+						start.x += mx;
+					
+					if(start.y != destination.y)
+						start.y += my;
+					
+					// check = 1;
+				}
+				else
+					useDefault = true;
+			}
+			else
+			{
+				if(start.x != destination.x)
+					start.x += mx;
+				
+				if(start.y != destination.y)
+					start.y += my;
+			}
+		}
+		
+		if(useDefault)
+		{
 		int32_t move_hor = std::abs(A * (start.x + mx) + B * (start.y) + C);
 		int32_t move_ver = std::abs(A * (start.x) + B * (start.y + my) + C);
 		int32_t move_cross = std::abs(A * (start.x + mx) + B * (start.y + my) + C);
 
-		if (start.y != destination.y && (start.x == destination.x || move_hor > move_ver || move_hor > move_cross)) {
+			if(start.y != destination.y && (start.x == destination.x || move_hor > move_ver || move_hor > move_cross))
 			start.y += my;
-		}
 
-		if (start.x != destination.x && (start.y == destination.y || move_ver > move_hor || move_ver > move_cross)) {
+			if(start.x != destination.x && (start.y == destination.y || move_ver > move_hor || move_ver > move_cross))
 			start.x += mx;
 		}
 
-		const Tile* tile = getTile(start.x, start.y, start.z);
-		if (tile && tile->hasProperty(CONST_PROP_BLOCKPROJECTILE)) {
+		const Tile* tile = const_cast<Map*>(this)->getTile(start);
+		if(tile && tile->hasProperty(CONST_PROP_BLOCKPROJECTILE))
 			return false;
 		}
-	}
 
 	// now we need to perform a jump between floors to see if everything is clear (literally)
-	while (start.z != destination.z) {
-		const Tile* tile = getTile(start.x, start.y, start.z);
-		if (tile && tile->getThingCount() > 0) {
+	while(start.z != destination.z)
+	{
+		const Tile* tile = const_cast<Map*>(this)->getTile(start.x, start.y, start.z);
+		if(tile && tile->getGround())
 			return false;
-		}
 
 		start.z++;
 	}
@@ -541,14 +651,32 @@ bool Map::checkSightLine(const Position& fromPos, const Position& toPos) const
 	return true;
 }
 
-bool Map::isSightClear(const Position& fromPos, const Position& toPos, bool floorCheck) const
+bool Map::isSightClear(const Position& fromPos, const Position& toPos, bool floorCheck, MapPathFinding_t path/*= MAPPATH_NONE*/) const
 {
-	if (floorCheck && fromPos.z != toPos.z) {
+	if(floorCheck && fromPos.z != toPos.z)
+		return false;
+
+	// Cast two converging rays and see if either yields a result.
+	if(path == MAPPATH_RUNE)
+		return checkSightSpellLine(fromPos, toPos);
+	else if(!checkSightSpellLine(fromPos, toPos))
+	{
+		const Tile* tile = const_cast<Map*>(this)->getTile(fromPos.x, fromPos.y, fromPos.z - 1);
+		if(tile && tile->getGround())
+			return false;
+		
+		if(path == MAPPATH_ITEM)
+{
+			if(checkSightSpellLine(fromPos, Position(fromPos.x, fromPos.y, fromPos.z - 1)) &&
+				checkSightSpellLine(Position(fromPos.x, fromPos.y, fromPos.z - 1), Position(toPos.x, toPos.y, toPos.z - 1)) &&
+				checkSightSpellLine(Position(toPos.x, toPos.y, toPos.z - 1), toPos))
+				return true;
+		}
+		
 		return false;
 	}
 
-	// Cast two converging rays and see if either yields a result.
-	return checkSightLine(fromPos, toPos) || checkSightLine(toPos, fromPos);
+	return true;
 }
 
 const Tile* Map::canWalkTo(const Creature& creature, const Position& pos) const

@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# brodrosch.npc: Datenbank für den Kapitän Brodrosch
+# brodrosch.npc: Datenbank fï¿½r den Kapitï¿½n Brodrosch
 
 Name = "Brodrosch"
 Outfit = (66,0-0-0-0)
@@ -52,11 +52,7 @@ VANISH,!           -> "Yeah, yeah, walk, it's cheaper."
 "cormaya",QuestValue(250)>2        -> Price=150, "So you want to go to Cormaya? %P gold?", Topic=1
 "passage",QuestValue(250)>2        -> *
 
-
-
-Topic=1,"yes",PZBlock,! -> "First get rid of those blood stains! You are not going to ruin my vehicle!"
-
-# für post-quest
+# fï¿½r post-quest
 
 Topic=1,"yes",Premium,QuestValue(227)=4,CountMoney>=Price -> "Full steam ahead!", DeleteMoney, Idle, EffectOpp(3), Teleport(33309,31989,15), EffectOpp(3),SetQuestValue(227,5)
 

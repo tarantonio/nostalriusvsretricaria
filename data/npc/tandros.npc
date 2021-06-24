@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# tandros.npc: Datenbank für den magierhändler Tandros
+# tandros.npc: Datenbank fï¿½r den magierhï¿½ndler Tandros
 
 Name = "Tandros"
 Outfit = (132,78-79-113-95)
@@ -20,7 +20,7 @@ VANISH,!           -> "Farewell."
 
 "bye"      -> "Farewell.", Idle
 "farewell" -> *
-"job"      -> "I am selling items of magic power such as runes, wands, rods, life fluids and mana fluids."
+"job"      -> "I am selling items of magic power such as runes, life fluids and mana fluids."
 "name"     -> "I am Tandros the magnificent."
 "time"     -> "It is a crime against the order of things to try measuring time. The very thought of squeezing the majesty of centuries and centuries into a puny mechanical device is blasphemy."
 "king"     -> "Our king is a worldly one. But if you buy enough of my fluids and runes you might become the king of magic one day."
@@ -48,12 +48,12 @@ VANISH,!           -> "Farewell."
 "lizard"    -> "The lizards live far away on the other side of the dangerous jungle. If you want to go there to learn more about their secrets, I strongly advise you to supply yourself with runes and fluids."
 "dworcs"     -> "The dworcs are fierce enemies and the poison they use is lethal. If you don't have some fluids and runes with you, you are easy prey to them." 
 
-"offer"           -> "I'm selling life and mana fluids, runes, wands, rods and spellbooks."
+"offer"           -> "I'm selling life and mana fluids, blank runes and spellbooks."
 "goods"           -> *
 "do","you","sell" -> *
 "do","you","have" -> *
 
-"rune"         -> "I sell blank runes and spell runes."
+"rune"         -> "I sell blank runes."
 "life","fluid" -> Type=2874, Data=11, Amount=1, Price=60, "Do you want to buy life fluid for %P gold?", Topic=2
 "mana","fluid" -> Type=2874, Data=10, Amount=1, Price=55, "Do you want to buy mana fluid for %P gold?", Topic=2
 "blank","rune" -> Type=3147, Amount=1, Price=10, "Do you want to buy a blank rune for %P gold?", Topic=1

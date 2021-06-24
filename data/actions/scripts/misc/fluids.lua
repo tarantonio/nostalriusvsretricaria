@@ -43,10 +43,10 @@ function onUse(player, item, fromPosition, target, toPosition)
 			elseif self and item:getFluidType() == FLUID_SLIME then
 				player:addCondition(slime)
 			elseif item:getFluidType() == FLUID_MANAFLUID then
-				target:addMana(math.random(50, 100))
+				target:addMana(math.random(40, 80))
 				target:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			elseif item:getFluidType() == FLUID_LIFEFLUID then
-				target:addHealth(math.random(25, 50))
+				target:addHealth(math.random(40, 80))
 				target:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			end
 			
@@ -66,7 +66,12 @@ function onUse(player, item, fromPosition, target, toPosition)
 			else
 				target:say("Gulp.", TALKTYPE_MONSTER_SAY)
 			end
-			item:transform(item:getId(), FLUID_NONE)
+
+			if item:getFluidType() == FLUID_MANAFLUID then
+				item:remove(1)
+			else
+				item:transform(item:getId(), FLUID_NONE)
+			end
 		end
 	else
 		if toPosition.x == CONTAINER_POSITION then
@@ -88,7 +93,6 @@ function onUse(player, item, fromPosition, target, toPosition)
 		elseif item:getFluidType() == FLUID_NONE then
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "It is empty.")
 		else
-
 			Game.createItem(2886, item.type, toPosition):decay()
 			item:transform(item:getId(), 0)
 		end

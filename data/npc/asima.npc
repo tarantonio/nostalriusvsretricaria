@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# asima.npc: Datenbank fuer die Magiebedarfshändlerin Asima
+# asima.npc: Datenbank fuer die Magiebedarfshï¿½ndlerin Asima
 
 Name = "Asima"
 Outfit = (138,97-70-94-76)
@@ -20,13 +20,13 @@ VANISH,!           -> "Daraman's blessings."
 "job"       -> "Shalmar's ears and eyesight have gotten really bad lately. I'm helping him with his magic store so he can focus on teaching spells."
 "time"      -> "It's %T right now."
 
-"offer"           -> "I'm selling life and mana fluids, runes, wands, rods and spellbooks."
+"offer"           -> "I'm selling life and mana fluids, blank runes and spellbooks."
 "goods"           -> *
 "do","you","sell" -> *
 "do","you","have" -> *
 
 
-"rune"         -> "I sell blank runes and spell runes."
+"rune"         -> "I sell blank runes."
 "life","fluid" -> Type=2874, Data=11, Amount=1, Price=60, "Do you want to buy life fluid for %P gold?", Topic=5
 "mana","fluid" -> Type=2874, Data=10, Amount=1, Price=55, "Do you want to buy mana fluid for %P gold?", Topic=5
 "blank","rune" -> Type=3147, Amount=1, Price=10, "Do you want to buy a blank rune for %P gold?", Topic=4

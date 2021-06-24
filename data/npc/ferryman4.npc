@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# ferryman4.npc: Fährmann Carlson in Vega (Ice)
+# ferryman4.npc: Fï¿½hrmann Carlson in Vega (Ice)
 
 Name = "Carlson"
 Outfit = (129,19-113-68-67)
@@ -42,11 +42,6 @@ VANISH,!                  -> "Good bye. You are welcome."
 "folda" -> Price=10, "Do you want a passage to Folda for %P gold?", Topic=2
 "vega"  -> "This island is Vega."
 "tibia" -> Price=0,  "Do you want a free passage back to Tibia?", Topic=3
-
-Topic=1,"yes",PZBlock,! -> "First get rid of those blood stains! You are not going to ruin my vehicle!"
-Topic=2,"yes",PZBlock,! -> *
-Topic=3,"yes",PZBlock,! -> *
-
 
 Topic=1,"yes",CountMoney>=Price -> "Have a nice trip!", DeleteMoney, Idle, EffectOpp(11), Teleport(32126,31667,7), EffectOpp(11)
 Topic=1,"yes"                   -> "You don't have enough money."

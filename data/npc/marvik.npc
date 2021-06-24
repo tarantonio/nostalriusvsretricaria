@@ -65,8 +65,6 @@ Topic=2,"instant","spell"     -> "I sell healing spells, supply spells, support 
 Topic=2,"level"               -> "For which level would you like to learn a spell?", Topic=2
 Topic=2,"bye"                 -> "Farewell.", Idle
 
-druid,"rod",QuestValue(333)<1  -> "Oh, you did not purchase your first magical rod yet? Please take this little present from me as your magic teacher!",SetQuestValue(333,1),Type=3066, Amount=1,Create(Type)
-
 Druid,"level"               -> "For which level would you like to learn a spell?", Topic=2
 Druid,"rune","spell"        -> "I sell attack rune spells, healing rune spells, support rune spells and summon rune spells. Which of these interests you most?"
 Druid,"instant","spell"     -> "I sell healing spells, supply spells, support spells and summon spells. Which of these interests you most?"

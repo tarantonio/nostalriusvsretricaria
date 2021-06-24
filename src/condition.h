@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -284,7 +284,7 @@ class ConditionDamage final : public Condition
 
 		uint32_t owner = 0;
 
-		bool doDamage(Creature* creature, int32_t healthChange);
+		bool doDamage(Creature* creature, int32_t healthChange, bool field = false);
 
 		bool updateCondition(const Condition* addCondition) final;
 };

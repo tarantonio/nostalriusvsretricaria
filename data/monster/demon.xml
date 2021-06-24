@@ -78,5 +78,7 @@
 		<item id="3032" countmax="1" chance="110" /> <!-- a small emerald -->
 		<item id="3049" countmax="1" chance="14" /> <!-- a stealth ring -->
 		<item id="3034" countmax="1" chance="35" /> <!-- a talon -->
+		<item id="3589" countmax="10" chance="200" /> <!-- a coconut -->
+		<item id="3577" countmax="4" chance="300" /> <!-- a meat -->
 	</loot>
 </monster>

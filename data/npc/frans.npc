@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# frans.npc: Datenbank für den Magieladen-Verkäufer Frans
+# frans.npc: Datenbank fï¿½r den Magieladen-Verkï¿½ufer Frans
 
 Name = "Frans"
 Outfit = (0,3114)
@@ -19,7 +19,7 @@ VANISH,!           -> "Bye."
 "farewell"  -> *
 "name"      -> "I am a FRANS."
 "frans"     -> "Floating ReeeeAnimated Necromantic Seeeervant ... FRANS."
-"job"       -> "I am selliiiing ruuuunes, wands, roooods and spellbooooooks."
+"job"       -> "I am selliiiing ruuuunes and spellbooooooks."
 "sorcerer"  -> "Sorcerorssss, druidssss, they all come to ussss."
 "druid"     -> *
 "magic"     -> "Is aaaall about magic more or lesssss, isn't it?"
@@ -30,12 +30,12 @@ VANISH,!           -> "Bye."
 "excalibug" -> "We FRANSes don't liiiike any bugssss."
 
 
-"offer"           -> "What do youuuu think I am? A lousy barberrrr? I'm selliiiing ruuuunes and spellboooooks."
+"offer"           -> "What do youuuu think I am? A lousy barberrrr? I'm selliiiing blank ruuuunes and spellboooooks."
 "goods"           -> *
 "do","you","sell" -> *
 "do","you","have" -> *
 
-"rune"          -> "I sell blank ruuuuunes and spell ruuuuunes."
+"rune"          -> "I sell blank ruuuuunes."
 "blank","rune"  -> Type=3147, Amount=1, Price=10,    "Do youuuu want to buy a blank ruuuune for %P gold?", Topic=1
 "spellbook"     -> Type=3059, Amount=1, Price=150,   "Do youuuu want to buy a spellboooook for %P gold?", Topic=1
 

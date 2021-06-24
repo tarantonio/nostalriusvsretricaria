@@ -41,5 +41,6 @@
 		<item id="3551" countmax="1" chance="200" /> <!-- sandals -->
 		<item id="3740" countmax="1" chance="150" /> <!-- a shadow herb -->
 		<item id="3049" countmax="1" chance="2" /> <!-- a stealth ring -->
+		<item id="3066" countmax="1" chance="10" /> <!-- a golden wand -->
 	</loot>
 </monster>

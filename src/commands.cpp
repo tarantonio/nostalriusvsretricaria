@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,6 +33,7 @@
 #include "globalevent.h"
 #include "monster.h"
 #include "scheduler.h"
+#include "events.h"
 
 #include "pugicast.h"
 
@@ -45,6 +46,7 @@ extern Spells* g_spells;
 extern Game g_game;
 extern CreatureEvents* g_creatureEvents;
 extern GlobalEvents* g_globalEvents;
+extern Events* g_events;
 extern Chat* g_chat;
 extern LuaEnvironment g_luaEnvironment;
 
@@ -229,6 +231,9 @@ void Commands::reloadInfo(Player& player, const std::string& param)
 	} else if (tmpParam == "globalevents" || tmpParam == "globalevent") {
 		g_globalEvents->reload();
 		player.sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Reloaded globalevents.");
+	} else if (tmpParam == "events") {
+		g_events->load();
+		player.sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Reloaded events.");
 	} else if (tmpParam == "chat" || tmpParam == "channel" || tmpParam == "chatchannels") {
 		g_chat->load();
 		player.sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Reloaded chatchannels.");
@@ -256,6 +261,11 @@ void Commands::sellHouse(Player& player, const std::string& param)
 
 	if (!tradePartner->isPremium()) {
 		player.sendCancelMessage("Trade player does not have a premium account.");
+		return;
+	}
+	
+	if (tradePartner->getLevel() < 50) {
+		player.sendCancelMessage("Trade partner is not level 50.");
 		return;
 	}
 

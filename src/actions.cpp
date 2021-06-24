@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -311,8 +311,11 @@ ReturnValue Actions::internalUseItem(Player* player, const Position& pos, uint8_
 
 bool Actions::useItem(Player* player, const Position& pos, uint8_t index, Item* item)
 {
-	player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
-	player->stopWalk();
+    if(pos.x == 0xFFFF) {
+        player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::ITEM_ACTIONS_DELAY_INTERVAL), true);
+    } else 
+        player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
+	//player->stopWalk();
 
 	ReturnValue ret = internalUseItem(player, pos, index, item);
 	if (ret != RETURNVALUE_NOERROR) {
@@ -325,8 +328,11 @@ bool Actions::useItem(Player* player, const Position& pos, uint8_t index, Item* 
 bool Actions::useItemEx(Player* player, const Position& fromPos, const Position& toPos,
                         uint8_t toStackPos, Item* item, Creature* creature/* = nullptr*/)
 {
-	player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::EX_ACTIONS_DELAY_INTERVAL));
-	player->stopWalk();
+    if(fromPos.x == 0xFFFF || toPos.x == 0xFFFF) {
+        player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::ITEM_EX_ACTIONS_DELAY_INTERVAL), true);
+    } else
+        player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::EX_ACTIONS_DELAY_INTERVAL));
+	//player->stopWalk();
 
 	Action* action = getAction(item);
 	if (!action) {

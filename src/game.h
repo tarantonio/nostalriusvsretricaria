@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -410,8 +410,9 @@ class Game
 		void ReleaseItem(Item* item);
 
 		bool canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight = true,
-		                      int32_t rangex = Map::maxClientViewportX, int32_t rangey = Map::maxClientViewportY) const;
-		bool isSightClear(const Position& fromPos, const Position& toPos, bool sameFloor) const;
+		                      int32_t rangex = Map::maxClientViewportX, int32_t rangey = Map::maxClientViewportY,
+							  MapPathFinding_t = MAPPATH_NONE) const;
+		bool isSightClear(const Position& fromPos, const Position& toPos, bool sameFloor, MapPathFinding_t = MAPPATH_NONE) const;
 
 		void changeSpeed(Creature* creature, int32_t varSpeedDelta);
 		void internalCreatureChangeOutfit(Creature* creature, const Outfit_t& oufit);
@@ -435,7 +436,7 @@ class Game
 
 		void combatGetTypeInfo(CombatType_t combatType, Creature* target, TextColor_t& color, uint8_t& effect);
 
-		bool combatChangeHealth(Creature* attacker, Creature* target, CombatDamage& damage);
+		bool combatChangeHealth(Creature* attacker, Creature* target, CombatDamage& damage, bool field = false);
 		bool combatChangeMana(Creature* attacker, Creature* target, int32_t manaChange);
 
 		//animation help functions
@@ -488,6 +489,8 @@ class Game
 		BedItem* getBedBySleeper(uint32_t guid) const;
 		void setBedSleeper(BedItem* bed, uint32_t guid);
 		void removeBedSleeper(uint32_t guid);
+
+		std::string parcel_sending_player;
 
 		Groups groups;
 		Map map;

@@ -81,5 +81,6 @@
 		<item id="3029" countmax="1" chance="14" /> <!-- a small sapphire -->
 		<item id="3081" countmax="1" chance="5" /> <!-- a stone skin amulet -->
 		<item id="3034" countmax="1" chance="11" /> <!-- a talon -->
+		<item id="3069" countmax="1" chance="10" /> <!-- a wand of might -->
 	</loot>
 </monster>

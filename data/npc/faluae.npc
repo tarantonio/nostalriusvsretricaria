@@ -47,8 +47,6 @@ VANISH,!                 -> "Asha Thrazi, traveller."
 "excalibug"     -> "What is that?"
 "news"          -> "Sorry, the only news I have concern the growth of plants and the coming and going of animal herds."
 
-druid,"rod",QuestValue(333)<1  -> "Oh, you did not purchase your first magical rod yet? Please take this little present from me as your magic teacher!",SetQuestValue(333,1),Type=3066, Amount=1,Create(Type)
-
 "magic"         -> "I learned a little about some minor spells."
 "druid"         -> "Druids are very close to Crunor."
 "sorcerer"      -> "They are so ... destructive."

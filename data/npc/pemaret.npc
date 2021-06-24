@@ -3,7 +3,7 @@
 
 Name = "Pemaret"
 Outfit = (128,79-10-127-127)
-Home = [33287,31956,6]
+Home = [33287,31956,7]
 Radius = 1
 
 Behaviour = {
@@ -40,10 +40,7 @@ VANISH,!                  -> "Good bye. You are welcome."
 "eremo"        -> "Oh, you know the good old sage Eremo. I can bring you to his little island. Do you want me to do that?", Topic=3
 "sage"         -> *
 
-Topic=1,"yes",PZBlock,! -> "First get rid of those blood stains! You are not going to ruin my vehicle!"
-Topic=3,"yes",PZBlock,! -> *
-
-Topic=1,"yes",CountMoney>=Price -> "Here we go!", DeleteMoney, Idle, EffectOpp(11), Teleport(33175,31764,6), EffectOpp(11)
+Topic=1,"yes",CountMoney>=Price -> "Here we go!", DeleteMoney, Idle, EffectOpp(11), Teleport(33182,31764,7), EffectOpp(11)
 Topic=1,"yes"                   -> "You don't have enough money."
 Topic=1                         -> "Maybe later."
 

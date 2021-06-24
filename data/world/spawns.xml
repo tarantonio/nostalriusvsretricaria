@@ -754,9 +754,6 @@
 	<spawn centerx="32599" centery="31652" centerz="5" radius="1">
 		<monster name="orc warrior" x="0" y="0" z="5" spawntime="600" />
 	</spawn>
-	<spawn centerx="32727" centery="31663" centerz="5" radius="1">
-		<monster name="purple butterfly" x="0" y="0" z="5" spawntime="600" />
-	</spawn>
 	<spawn centerx="32370" centery="31669" centerz="5" radius="3">
 		<monster name="wasp" x="-2" y="-2" z="5" spawntime="600" />
 		<monster name="wasp" x="0" y="0" z="5" spawntime="600" />
@@ -1903,18 +1900,12 @@
 	<spawn centerx="33063" centery="32173" centerz="6" radius="1">
 		<monster name="elf scout" x="0" y="0" z="6" spawntime="600" />
 	</spawn>
-	<spawn centerx="33324" centery="32173" centerz="6" radius="3">
-		<monster name="skeleton" x="2" y="-1" z="6" spawntime="600" />
-		<monster name="skeleton" x="0" y="0" z="6" spawntime="600" />
-	</spawn>
+	<spawn centerx="33324" centery="32173" centerz="6" radius="3" />
 	<spawn centerx="32624" centery="32175" centerz="6" radius="3" />
 	<spawn centerx="32045" centery="32177" centerz="6" radius="1">
 		<monster name="troll" x="0" y="0" z="6" spawntime="600" />
 	</spawn>
-	<spawn centerx="33317" centery="32182" centerz="6" radius="3">
-		<monster name="ghoul" x="-1" y="-1" z="6" spawntime="600" />
-		<monster name="ghoul" x="0" y="0" z="6" spawntime="600" />
-	</spawn>
+	<spawn centerx="33317" centery="32182" centerz="6" radius="3" />
 	<spawn centerx="33324" centery="32182" centerz="6" radius="1">
 		<monster name="skeleton" x="0" y="0" z="6" spawntime="600" />
 	</spawn>
@@ -2495,37 +2486,10 @@
 		<monster name="lizard snakecharmer" x="1" y="3" z="6" spawntime="600" />
 	</spawn>
 	<spawn centerx="32956" centery="32854" centerz="6" radius="3" />
-	<spawn centerx="32083" centery="31533" centerz="7" radius="5">
-		<monster name="winter wolf" x="-1" y="0" z="7" spawntime="600" />
-		<monster name="winter wolf" x="0" y="0" z="7" spawntime="600" />
-		<monster name="winter wolf" x="-3" y="2" z="7" spawntime="600" />
-		<monster name="winter wolf" x="1" y="2" z="7" spawntime="600" />
-	</spawn>
-	<spawn centerx="32019" centery="31536" centerz="7" radius="4">
-		<monster name="winter wolf" x="0" y="0" z="7" spawntime="700" />
-		<monster name="winter wolf" x="-3" y="2" z="7" spawntime="700" />
-		<monster name="winter wolf" x="3" y="2" z="7" spawntime="700" />
-	</spawn>
-	<spawn centerx="32026" centery="31550" centerz="7" radius="1">
-		<monster name="rabbit" x="0" y="0" z="7" spawntime="600" />
-	</spawn>
-	<spawn centerx="31983" centery="31560" centerz="7" radius="6">
-		<monster name="frost troll" x="2" y="-2" z="7" spawntime="800" />
-		<monster name="frost troll" x="0" y="0" z="7" spawntime="800" />
-		<monster name="frost troll" x="0" y="2" z="7" spawntime="800" />
-		<monster name="frost troll" x="3" y="2" z="7" spawntime="800" />
-		<monster name="frost troll" x="0" y="5" z="7" spawntime="800" />
-	</spawn>
 	<spawn centerx="32797" centery="31561" centerz="7" radius="4">
 		<monster name="rotworm" x="3" y="-2" z="7" spawntime="500" />
 		<monster name="rotworm" x="3" y="-1" z="7" spawntime="500" />
 		<monster name="rotworm" x="0" y="0" z="7" spawntime="500" />
-	</spawn>
-	<spawn centerx="32003" centery="31571" centerz="7" radius="5">
-		<monster name="frost troll" x="2" y="-4" z="7" spawntime="600" />
-		<monster name="frost troll" x="-2" y="-1" z="7" spawntime="600" />
-		<monster name="frost troll" x="3" y="-1" z="7" spawntime="600" />
-		<monster name="frost troll" x="0" y="0" z="7" spawntime="600" />
 	</spawn>
 	<spawn centerx="32812" centery="31573" centerz="7" radius="4">
 		<monster name="skeleton" x="-1" y="0" z="7" spawntime="600" />
@@ -2536,13 +2500,6 @@
 	<spawn centerx="32791" centery="31576" centerz="7" radius="3">
 		<monster name="skeleton" x="0" y="0" z="7" spawntime="600" />
 		<monster name="skeleton" x="1" y="1" z="7" spawntime="600" />
-	</spawn>
-	<spawn centerx="32016" centery="31577" centerz="7" radius="3">
-		<monster name="frost troll" x="-2" y="-2" z="7" spawntime="650" />
-		<monster name="frost troll" x="0" y="0" z="7" spawntime="650" />
-	</spawn>
-	<spawn centerx="32118" centery="31577" centerz="7" radius="1">
-		<monster name="polar bear" x="0" y="0" z="7" spawntime="600" />
 	</spawn>
 	<spawn centerx="32425" centery="31577" centerz="7" radius="3">
 		<monster name="valkyrie" x="0" y="0" z="7" spawntime="600" />
@@ -2567,11 +2524,6 @@
 		<monster name="scorpion" x="0" y="-2" z="7" spawntime="600" />
 		<monster name="scorpion" x="-3" y="0" z="7" spawntime="600" />
 		<monster name="scorpion" x="0" y="0" z="7" spawntime="600" />
-	</spawn>
-	<spawn centerx="32141" centery="31587" centerz="7" radius="4">
-		<monster name="polar bear" x="-1" y="-3" z="7" spawntime="650" />
-		<monster name="polar bear" x="0" y="0" z="7" spawntime="650" />
-		<monster name="polar bear" x="3" y="0" z="7" spawntime="650" />
 	</spawn>
 	<spawn centerx="32426" centery="31588" centerz="7" radius="5">
 		<monster name="amazon" x="4" y="-3" z="7" spawntime="600" />
@@ -2598,12 +2550,6 @@
 		<monster name="skeleton" x="0" y="0" z="7" spawntime="600" />
 	</spawn>
 	<spawn centerx="32798" centery="31589" centerz="7" radius="4" />
-	<spawn centerx="31976" centery="31592" centerz="7" radius="5">
-		<monster name="deer" x="-3" y="-4" z="7" spawntime="700" />
-		<monster name="deer" x="0" y="0" z="7" spawntime="700" />
-		<monster name="deer" x="3" y="0" z="7" spawntime="700" />
-		<monster name="deer" x="1" y="4" z="7" spawntime="700" />
-	</spawn>
 	<spawn centerx="32793" centery="31593" centerz="7" radius="3">
 		<monster name="skeleton" x="-2" y="-2" z="7" spawntime="600" />
 		<monster name="skeleton" x="0" y="0" z="7" spawntime="600" />
@@ -2629,10 +2575,6 @@
 		<monster name="scorpion" x="0" y="0" z="7" spawntime="600" />
 		<monster name="scorpion" x="0" y="1" z="7" spawntime="600" />
 	</spawn>
-	<spawn centerx="32134" centery="31601" centerz="7" radius="3">
-		<monster name="polar bear" x="0" y="0" z="7" spawntime="700" />
-		<monster name="polar bear" x="2" y="1" z="7" spawntime="700" />
-	</spawn>
 	<spawn centerx="32635" centery="31602" centerz="7" radius="4">
 		<monster name="snake" x="-2" y="-3" z="7" spawntime="600" />
 		<monster name="snake" x="0" y="0" z="7" spawntime="600" />
@@ -2646,9 +2588,6 @@
 	<spawn centerx="32790" centery="31607" centerz="7" radius="3">
 		<monster name="rotworm" x="0" y="0" z="7" spawntime="500" />
 		<monster name="rotworm" x="2" y="1" z="7" spawntime="500" />
-	</spawn>
-	<spawn centerx="32039" centery="31615" centerz="7" radius="1">
-		<monster name="polar bear" x="0" y="0" z="7" spawntime="850" />
 	</spawn>
 	<spawn centerx="32513" centery="31618" centerz="7" radius="6">
 		<monster name="spider" x="1" y="-3" z="7" spawntime="600" />
@@ -2671,16 +2610,8 @@
 	<spawn centerx="32425" centery="31620" centerz="7" radius="1">
 		<monster name="bear" x="0" y="0" z="7" spawntime="600" />
 	</spawn>
-	<spawn centerx="32018" centery="31624" centerz="7" radius="3">
-		<monster name="polar bear" x="0" y="0" z="7" spawntime="700" />
-		<monster name="polar bear" x="-1" y="1" z="7" spawntime="700" />
-	</spawn>
 	<spawn centerx="32488" centery="31627" centerz="7" radius="1">
 		<monster name="chicken" x="0" y="0" z="7" spawntime="600" />
-	</spawn>
-	<spawn centerx="32171" centery="31628" centerz="7" radius="3">
-		<monster name="rabbit" x="0" y="0" z="7" spawntime="700" />
-		<monster name="rabbit" x="2" y="1" z="7" spawntime="700" />
 	</spawn>
 	<spawn centerx="32453" centery="31628" centerz="7" radius="6">
 		<monster name="wolf" x="1" y="-4" z="7" spawntime="600" />
@@ -2871,14 +2802,6 @@
 		<monster name="deer" x="2" y="0" z="7" spawntime="600" />
 		<monster name="deer" x="0" y="3" z="7" spawntime="600" />
 	</spawn>
-	<spawn centerx="31985" centery="31685" centerz="7" radius="7">
-		<monster name="winter wolf" x="6" y="-5" z="7" spawntime="650" />
-		<monster name="winter wolf" x="0" y="0" z="7" spawntime="650" />
-		<monster name="winter wolf" x="3" y="0" z="7" spawntime="650" />
-		<monster name="winter wolf" x="2" y="2" z="7" spawntime="650" />
-		<monster name="winter wolf" x="2" y="3" z="7" spawntime="650" />
-		<monster name="winter wolf" x="1" y="5" z="7" spawntime="650" />
-	</spawn>
 	<spawn centerx="33169" centery="31686" centerz="7" radius="8">
 		<monster name="wolf" x="-7" y="-6" z="7" spawntime="600" />
 		<monster name="wolf" x="-5" y="-6" z="7" spawntime="600" />
@@ -3060,11 +2983,6 @@
 		<monster name="orc" x="4" y="7" z="7" spawntime="600" />
 		<monster name="orc" x="5" y="7" z="7" spawntime="600" />
 	</spawn>
-	<spawn centerx="31991" centery="31711" centerz="7" radius="4">
-		<monster name="winter wolf" x="2" y="-3" z="7" spawntime="750" />
-		<monster name="winter wolf" x="0" y="0" z="7" spawntime="750" />
-		<monster name="winter wolf" x="-3" y="2" z="7" spawntime="750" />
-	</spawn>
 	<spawn centerx="32580" centery="31711" centerz="7" radius="1">
 		<monster name="bear" x="0" y="0" z="7" spawntime="500" />
 	</spawn>
@@ -3151,10 +3069,6 @@
 		<monster name="rabbit" x="0" y="0" z="7" spawntime="600" />
 		<monster name="rabbit" x="1" y="0" z="7" spawntime="600" />
 	</spawn>
-	<spawn centerx="31954" centery="31721" centerz="7" radius="3">
-		<monster name="rabbit" x="0" y="0" z="7" spawntime="600" />
-		<monster name="rabbit" x="1" y="2" z="7" spawntime="600" />
-	</spawn>
 	<spawn centerx="32962" centery="31721" centerz="7" radius="5">
 		<monster name="orc spearman" x="4" y="-1" z="7" spawntime="600" />
 		<monster name="wolf" x="0" y="0" z="7" spawntime="600" />
@@ -3180,9 +3094,6 @@
 	<spawn centerx="33230" centery="31722" centerz="7" radius="3">
 		<monster name="bear" x="-1" y="-2" z="7" spawntime="600" />
 		<monster name="bear" x="0" y="0" z="7" spawntime="600" />
-	</spawn>
-	<spawn centerx="31964" centery="31723" centerz="7" radius="1">
-		<monster name="polar bear" x="0" y="0" z="7" spawntime="800" />
 	</spawn>
 	<spawn centerx="32266" centery="31723" centerz="7" radius="4">
 		<monster name="deer" x="1" y="-2" z="7" spawntime="600" />
@@ -3240,11 +3151,6 @@
 	<spawn centerx="33296" centery="31730" centerz="7" radius="3">
 		<monster name="rabbit" x="2" y="-2" z="7" spawntime="600" />
 		<monster name="rabbit" x="0" y="0" z="7" spawntime="600" />
-	</spawn>
-	<spawn centerx="31951" centery="31731" centerz="7" radius="4">
-		<monster name="polar bear" x="-2" y="-3" z="7" spawntime="600" />
-		<monster name="polar bear" x="0" y="0" z="7" spawntime="600" />
-		<monster name="polar bear" x="3" y="2" z="7" spawntime="600" />
 	</spawn>
 	<spawn centerx="32971" centery="31731" centerz="7" radius="3">
 		<monster name="orc warrior" x="0" y="0" z="7" spawntime="600" />

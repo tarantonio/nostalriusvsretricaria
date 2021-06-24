@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -106,6 +106,13 @@ class Monster final : public Creature
 		}
 
 		bool canPushItems() const {
+			// allows summons to push items if their master is able to
+			if (isSummon()) {
+				if (Monster* monster = master->getMonster()) {
+					return monster->mType->info.canPushItems;
+				}
+			}
+
 			return mType->info.canPushItems;
 		}
 		bool canPushCreatures() const {

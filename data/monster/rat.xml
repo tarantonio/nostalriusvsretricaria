@@ -23,6 +23,5 @@
 	<loot>
 		<item id="3607" countmax="1" chance="400" /> <!-- cheese -->
 		<item id="3031" countmax="4" chance="700" /> <!-- a gold coin -->
-		<item id="3492" countmax="3" chance="500" /> <!-- a worm -->
 	</loot>
 </monster>

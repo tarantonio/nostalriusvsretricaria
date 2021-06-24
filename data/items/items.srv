@@ -1859,16 +1859,19 @@ Attributes  = {Waypoints=100}
 
 TypeID      = 465
 Name        = "stairs"
+Editor      = "North Teleport"
 Flags       = {Bank,CollisionEvent,Unmove,Avoid,Disguise}
 Attributes  = {Waypoints=95,DisguiseTarget=469}
 
 TypeID      = 466
 Name        = "stairs"
+Editor      = "West Teleport"
 Flags       = {Bank,CollisionEvent,Unmove,Avoid,Disguise}
 Attributes  = {Waypoints=95,DisguiseTarget=469}
 
 TypeID      = 467
 Name        = "stairs"
+Editor      = "East Teleport"
 Flags       = {Bank,CollisionEvent,Unmove,Avoid,Disguise}
 Attributes  = {Waypoints=95,DisguiseTarget=469}
 
@@ -2482,6 +2485,7 @@ Attributes  = {Waypoints=160,ExpireTarget=593,TotalExpireTime=300}
 
 TypeID      = 595
 Name        = "a hole"
+Editor      = "Same coordinate teleport"
 Flags       = {Bank,CollisionEvent,Unmove,Avoid}
 Attributes  = {Waypoints=150}
 
@@ -2524,12 +2528,14 @@ Name        = "a ramp"
 Flags       = {Clip,Unmove}
 
 TypeID      = 604
-Name        = "a ramp"
+Name        = "a hole"
+Editor 		= "West Teleport"
 Flags       = {Bank,CollisionEvent,Unmove,Avoid}
 Attributes  = {Waypoints=150}
 
 TypeID      = 605
-Name        = "a ramp"
+Name        = "a hole"
+Editor		= "East Teleport"
 Flags       = {Bank,CollisionEvent,Unmove,Avoid}
 Attributes  = {Waypoints=150}
 
@@ -2623,7 +2629,7 @@ Attributes  = {Waypoints=1}
 
 TypeID      = 624
 Name        = "sand"
-Flags       = {Bank,Unpass,Unmove}
+Flags       = {Bank,Unmove}
 Attributes  = {Waypoints=1}
 
 TypeID      = 625
@@ -2633,7 +2639,7 @@ Attributes  = {Waypoints=1}
 
 TypeID      = 626
 Name        = "sand"
-Flags       = {Bank,Unpass,Unmove}
+Flags       = {Bank,Unmove}
 Attributes  = {Waypoints=1}
 
 TypeID      = 627
@@ -2643,17 +2649,17 @@ Attributes  = {Waypoints=1}
 
 TypeID      = 628
 Name        = "sand"
-Flags       = {Bank,Unpass,Unmove}
+Flags       = {Bank,Unmove}
 Attributes  = {Waypoints=1}
 
 TypeID      = 629
 Name        = "sand"
-Flags       = {Bank,Unpass,Unmove}
+Flags       = {Bank,Unmove}
 Attributes  = {Waypoints=1}
 
 TypeID      = 630
 Name        = "sand"
-Flags       = {Bank,Unpass,Unmove}
+Flags       = {Bank,Unmove}
 Attributes  = {Waypoints=1}
 
 TypeID      = 631
@@ -2668,7 +2674,7 @@ Attributes  = {Waypoints=1}
 
 TypeID      = 633
 Name        = "sand"
-Flags       = {Bank,Unpass,Unmove}
+Flags       = {Bank,Unmove}
 Attributes  = {Waypoints=1}
 
 TypeID      = 634
@@ -7855,7 +7861,7 @@ Attributes  = {Weight=41000}
 TypeID      = 1781
 Name        = "a small stone"
 Flags       = {Cumulative,Take,Distance}
-Attributes  = {Weight=360,Range=7,Attack=10,Defense=0,MissileEffect=10,Fragility=7}
+Attributes  = {Weight=360,Range=7,Attack=10,Defense=0,MissileEffect=10,Fragility=100}
 
 TypeID      = 1782
 Name        = "a stone"
@@ -13696,22 +13702,19 @@ Name        = "the orb of nature"
 Flags       = {Unmove}
 
 TypeID      = 3065
-Name        = "a quagmire rod"
-Description = "It emits clouds of poisonous swamp gas"
-Flags       = {Take,Wand}
-Attributes  = {MinimumLevel=26,Weight=2650,Brightness=2,LightColor=67,Vocations=2,Range=2,ManaConsumption=8,AttackStrength=45,AttackVariation=8,DamageType=Poison,MissileEffect=15}
+Name        = "a wooden wand"
+Flags       = {Take,Wand,MultiUse}
+Attributes  = {Weight=2650}
 
 TypeID      = 3066
-Name        = "a snakebite rod"
-Description = "It seems to twitch and quiver as if trying to escape your grip"
-Flags       = {Take,Wand}
-Attributes  = {MinimumLevel=7,Weight=4300,Vocations=2,Range=4,ManaConsumption=2,AttackStrength=13,AttackVariation=5,DamageType=Poison,MissileEffect=15}
+Name        = "a golden wand"
+Flags       = {Take,Wand,MultiUse}
+Attributes  = {Weight=4300}
 
 TypeID      = 3067
-Name        = "a tempest rod"
-Description = "It grants you the power of striking your foes with furious thunderstorms"
-Flags       = {Take,Wand}
-Attributes  = {MinimumLevel=33,Weight=2100,Brightness=3,LightColor=29,Vocations=2,ManaConsumption=13,AttackStrength=65,AttackVariation=9,DamageType=Energy,Range=1,MissileEffect=5}
+Name        = "an elven wand"
+Flags       = {Take,Wand,MultiUse}
+Attributes  = {Weight=2100}
 
 TypeID      = 3068
 Name        = "a crystal wand"
@@ -13719,46 +13722,39 @@ Flags       = {Take}
 Attributes  = {Weight=2800}
 
 TypeID      = 3069
-Name        = "a volcanic rod"
-Description = "It erupts powerful bursts of magma upon everything in your path"
-Flags       = {Take,Wand}
-Attributes  = {MinimumLevel=19,Weight=2900,Brightness=2,LightColor=199,Vocations=2,ManaConsumption=5,AttackStrength=30,AttackVariation=7,DamageType=Fire,Range=3,MissileEffect=4}
+Name        = "a wand of might"
+Flags       = {Take,Wand,MultiUse}
+Attributes  = {Weight=2900}
 
 TypeID      = 3070
-Name        = "a moonlight rod"
-Description = "Shimmering rays of moonlight radiate from its tip"
-Flags       = {Take,Wand}
-Attributes  = {MinimumLevel=13,Weight=1950,Brightness=3,LightColor=143,Vocations=2,ManaConsumption=3,AttackStrength=19,AttackVariation=6,DamageType=Energy,Range=2,MissileEffect=5}
+Name        = "a conjurer wand"
+Flags       = {Take,Wand,MultiUse}
+Attributes  = {Weight=1950}
 
 TypeID      = 3071
-Name        = "a wand of inferno"
-Description = "It unleashes the very fires of hell"
-Flags       = {Take,Wand}
-Attributes  = {MinimumLevel=33,Weight=3050,Brightness=3,LightColor=205,Vocations=1,ManaConsumption=13,AttackStrength=65,AttackVariation=9,DamageType=Fire,Range=2,MissileEffect=4}
+Name        = "a ritual wand"
+Flags       = {Take,Wand,MultiUse}
+Attributes  = {Weight=3050}
 
 TypeID      = 3072
-Name        = "a wand of plague"
-Description = "Infectious goo covers its tip"
-Flags       = {Take,Wand}
-Attributes  = {MinimumLevel=19,Weight=2300,Brightness=2,LightColor=67,Vocations=1,ManaConsumption=5,AttackStrength=30,AttackVariation=7,DamageType=Poison,Range=2,MissileEffect=15}
+Name        = "a green spell wand"
+Flags       = {Take,Wand,MultiUse}
+Attributes  = {Weight=2300}
 
 TypeID      = 3073
-Name        = "a wand of cosmic energy"
-Description = "The energy of a radiant star is trapped inside its globe"
-Flags       = {Take,Wand}
-Attributes  = {MinimumLevel=26,Weight=2300,Brightness=2,LightColor=205,Vocations=1,ManaConsumption=8,AttackStrength=45,AttackVariation=8,DamageType=Energy,Range=1,MissileEffect=5}
+Name        = "a yellow spell wand"
+Flags       = {Take,Wand,MultiUse}
+Attributes  = {Weight=2300}
 
 TypeID      = 3074
-Name        = "a wand of vortex"
-Description = "Surges of energy rush through the tip of this wand"
-Flags       = {Take,Wand}
-Attributes  = {MinimumLevel=7,Weight=2300,Brightness=2,LightColor=23,Vocations=1,ManaConsumption=2,AttackStrength=13,AttackVariation=5,DamageType=Energy,Range=3,MissileEffect=5}
+Name        = "a blue spell wand"
+Flags       = {Take,Wand,MultiUse}
+Attributes  = {Weight=2300}
 
 TypeID      = 3075
-Name        = "a wand of dragonbreath"
-Description = "Legends say that this wand holds the soul of a young dragon"
-Flags       = {Take,Wand}
-Attributes  = {MinimumLevel=13,Weight=2300,Brightness=2,LightColor=192,Vocations=1,ManaConsumption=3,AttackStrength=19,AttackVariation=6,DamageType=Fire,Range=3,MissileEffect=4}
+Name        = "a red spell wand"
+Flags       = {Take,Wand,MultiUse}
+Attributes  = {Weight=2300}
 
 TypeID      = 3076
 Name        = "a crystal ball"
@@ -14791,7 +14787,7 @@ Attributes  = {Weight=3500,WeaponType=AXE,Attack=15,Defense=8}
 TypeID      = 3277
 Name        = "a spear"
 Flags       = {Cumulative,Take,Distance}
-Attributes  = {Weight=2000,Range=7,Attack=25,Defense=0,MissileEffect=1,Fragility=3}
+Attributes  = {Weight=2000,Range=7,Attack=30,Defense=0,MissileEffect=1,Fragility=0}
 
 TypeID      = 3278
 Name        = "a magic longsword"
@@ -14845,7 +14841,7 @@ Attributes  = {Weight=3800,WeaponType=CLUB,Attack=16,Defense=11}
 TypeID      = 3287
 Name        = "a throwing star"
 Flags       = {MultiUse,Cumulative,Take,Distance}
-Attributes  = {Weight=200,Range=7,Attack=35,Defense=0,MissileEffect=8,Fragility=10}
+Attributes  = {Weight=200,Range=7,Attack=35,Defense=0,MissileEffect=8,Fragility=100}
 
 TypeID      = 3288
 Name        = "a magic sword"
@@ -14903,7 +14899,7 @@ Attributes  = {Weight=4100,WeaponType=SWORD,Attack=26,Defense=15}
 TypeID      = 3298
 Name        = "a throwing knife"
 Flags       = {MultiUse,Cumulative,Take,Distance}
-Attributes  = {Weight=500,Range=7,Attack=25,Defense=0,MissileEffect=9,Fragility=7}
+Attributes  = {Weight=500,Range=7,Attack=25,Defense=0,MissileEffect=9,Fragility=100}
 
 TypeID      = 3299
 Name        = "a poison dagger"
@@ -21045,22 +21041,22 @@ Attributes  = {Waypoints=0,FluidSource=WATER,DisguiseTarget=4614}
 
 TypeID      = 4621
 Name        = "shallow water"
-Flags       = {Bank,Unmove}
+Flags       = {Bank,Unpass,Unmove}
 Attributes  = {Waypoints=160,FluidSource=WATER}
 
 TypeID      = 4622
 Name        = "shallow water"
-Flags       = {Bank,Unmove}
+Flags       = {Bank,Unpass,Unmove}
 Attributes  = {Waypoints=160,FluidSource=WATER}
 
 TypeID      = 4623
 Name        = "shallow water"
-Flags       = {Bank,Unmove}
+Flags       = {Bank,Unpass,Unmove}
 Attributes  = {Waypoints=160,FluidSource=WATER}
 
 TypeID      = 4624
 Name        = "shallow water"
-Flags       = {Bank,Unmove}
+Flags       = {Bank,Unpass,Unmove}
 Attributes  = {Waypoints=160,FluidSource=WATER}
 
 TypeID      = 4625
@@ -21085,27 +21081,27 @@ Attributes  = {Waypoints=160,FluidSource=WATER}
 
 TypeID      = 4629
 Name        = "shallow water"
-Flags       = {Bank,Unmove}
+Flags       = {Bank,Unpass,Unmove}
 Attributes  = {Waypoints=160,FluidSource=WATER}
 
 TypeID      = 4630
 Name        = "shallow water"
-Flags       = {Bank,Unmove}
+Flags       = {Bank,Unpass,Unmove}
 Attributes  = {Waypoints=160,FluidSource=WATER}
 
 TypeID      = 4631
 Name        = "shallow water"
-Flags       = {Bank,Unmove}
+Flags       = {Bank,Unpass,Unmove}
 Attributes  = {Waypoints=160,FluidSource=WATER}
 
 TypeID      = 4632
 Name        = "shallow water"
-Flags       = {Bank,Unmove}
+Flags       = {Bank,Unpass,Unmove}
 Attributes  = {Waypoints=160,FluidSource=WATER}
 
 TypeID      = 4633
 Name        = "shallow water"
-Flags       = {Clip,Unpass,Unmove}
+Flags       = {Clip,Unmove}
 Attributes  = {FluidSource=WATER}
 
 TypeID      = 4634
@@ -21120,12 +21116,12 @@ Attributes  = {FluidSource=WATER}
 
 TypeID      = 4636
 Name        = "shallow water"
-Flags       = {Clip,Unpass,Unmove}
+Flags       = {Clip,Unmove}
 Attributes  = {FluidSource=WATER}
 
 TypeID      = 4637
 Name        = "shallow water"
-Flags       = {Clip,Unpass,Unmove}
+Flags       = {Clip,Unmove}
 Attributes  = {FluidSource=WATER}
 
 TypeID      = 4638
@@ -21145,17 +21141,17 @@ Attributes  = {FluidSource=WATER}
 
 TypeID      = 4641
 Name        = "shallow water"
-Flags       = {Clip,Unpass,Unmove}
+Flags       = {Clip,Unmove}
 Attributes  = {FluidSource=WATER}
 
 TypeID      = 4642
 Name        = "shallow water"
-Flags       = {Clip,Unpass,Unmove}
+Flags       = {Clip,Unmove}
 Attributes  = {FluidSource=WATER}
 
 TypeID      = 4643
 Name        = "shallow water"
-Flags       = {Clip,Unpass,Unmove}
+Flags       = {Clip,Unmove}
 Attributes  = {FluidSource=WATER}
 
 TypeID      = 4644
@@ -23151,8 +23147,3 @@ Name        = "a butterfly conservation kit"
 Description = "It contains a rare yellow butterfly"
 Flags       = {Take}
 Attributes  = {Weight=800}
-
-TypeID      = 5090
-Name        = "a treasure map"
-Flags       = {Text,Take}
-Attributes  = {Weight=830}

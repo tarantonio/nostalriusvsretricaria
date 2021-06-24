@@ -385,7 +385,112 @@
 	<movevent event="StepIn" movementid="235" script="nostalrius/235.lua" />
 	<movevent event="AddItem" movementid="235" tileitem="1" script="nostalrius/235.lua" />
 	<movevent event="StepIn" movementid="236" script="nostalrius/236.lua" />
+	<movevent event="AddItem" movementid="236" tileitem="1" script="nostalrius/236.lua" />
 	<movevent event="StepIn" movementid="237" script="nostalrius/237.lua" />
+	<movevent event="AddItem" movementid="237" tileitem="1" script="nostalrius/237.lua" />
+	<movevent event="StepIn" movementid="238" script="nostalrius/238.lua" />
+	<movevent event="AddItem" movementid="238" tileitem="1" script="nostalrius/238.lua" />
+	<movevent event="StepIn" movementid="239" script="nostalrius/239.lua" />
+	<movevent event="AddItem" movementid="239" tileitem="1" script="nostalrius/239.lua" />
+	<movevent event="StepIn" movementid="240" script="nostalrius/240.lua" />
+	<movevent event="AddItem" movementid="240" tileitem="1" script="nostalrius/240.lua" />
+	<movevent event="StepIn" movementid="241" script="nostalrius/241.lua" />
+	<movevent event="AddItem" movementid="241" tileitem="1" script="nostalrius/241.lua" />
+	<movevent event="StepIn" movementid="242" script="nostalrius/242.lua" />
+	<movevent event="AddItem" movementid="242" tileitem="1" script="nostalrius/242.lua" />
+	<movevent event="StepIn" movementid="243" script="nostalrius/243.lua" />
+	<movevent event="AddItem" movementid="243" tileitem="1" script="nostalrius/243.lua" />
+	<movevent event="StepIn" movementid="244" script="nostalrius/244.lua" />
+	<movevent event="AddItem" movementid="244" tileitem="1" script="nostalrius/244.lua" />
+	<movevent event="StepIn" movementid="245" script="nostalrius/245.lua" />
+	<movevent event="AddItem" movementid="245" tileitem="1" script="nostalrius/245.lua" />
+	<movevent event="StepIn" movementid="246" script="nostalrius/246.lua" />
+	<movevent event="AddItem" movementid="246" tileitem="1" script="nostalrius/246.lua" />
+	<movevent event="StepIn" movementid="247" script="nostalrius/247.lua" />
+	<movevent event="AddItem" movementid="247" tileitem="1" script="nostalrius/247.lua" />
+	<movevent event="StepIn" movementid="248" script="nostalrius/248.lua" />
+	<movevent event="AddItem" movementid="248" tileitem="1" script="nostalrius/248.lua" />
+	<movevent event="StepIn" movementid="249" script="nostalrius/249.lua" />
+	<movevent event="AddItem" movementid="249" tileitem="1" script="nostalrius/249.lua" />
+	<movevent event="StepIn" movementid="250" script="nostalrius/250.lua" />
+	<movevent event="AddItem" movementid="250" tileitem="1" script="nostalrius/250.lua" />
+	<movevent event="StepIn" movementid="260" script="nostalrius/260.lua" />
+	<movevent event="AddItem" movementid="260" tileitem="1" script="nostalrius/260.lua" />
+	<movevent event="StepIn" movementid="261" script="nostalrius/261.lua" />
+	<movevent event="AddItem" movementid="261" tileitem="1" script="nostalrius/261.lua" />
+	<movevent event="StepIn" movementid="262" script="nostalrius/262.lua" />
+	<movevent event="AddItem" movementid="262" tileitem="1" script="nostalrius/262.lua" />
+	<movevent event="StepIn" movementid="263" script="nostalrius/263.lua" />
+	<movevent event="AddItem" movementid="263" tileitem="1" script="nostalrius/263.lua" />
+	<movevent event="StepIn" movementid="264" script="nostalrius/264.lua" />
+	<movevent event="AddItem" movementid="264" tileitem="1" script="nostalrius/264.lua" />
+	<movevent event="StepIn" movementid="265" script="nostalrius/265.lua" />
+	<movevent event="AddItem" movementid="265" tileitem="1" script="nostalrius/265.lua" />
+	<movevent event="StepIn" movementid="266" script="nostalrius/266.lua" />
+	<movevent event="AddItem" movementid="266" tileitem="1" script="nostalrius/266.lua" />
+	<movevent event="StepIn" movementid="267" script="nostalrius/267.lua" />
+	<movevent event="AddItem" movementid="267" tileitem="1" script="nostalrius/267.lua" />
+	<movevent event="StepIn" movementid="268" script="nostalrius/268.lua" />
+	<movevent event="AddItem" movementid="268" tileitem="1" script="nostalrius/268.lua" />
+	<movevent event="StepIn" movementid="269" script="nostalrius/269.lua" />
+	<movevent event="AddItem" movementid="269" tileitem="1" script="nostalrius/269.lua" />
+	<movevent event="StepIn" movementid="270" script="nostalrius/270.lua" />
+	<movevent event="AddItem" movementid="270" tileitem="1" script="nostalrius/270.lua" />
+	<movevent event="StepIn" movementid="271" script="nostalrius/271.lua" />
+	<movevent event="AddItem" movementid="271" tileitem="1" script="nostalrius/271.lua" />
+	<movevent event="StepIn" movementid="272" script="nostalrius/272.lua" />
+	<movevent event="AddItem" movementid="272" tileitem="1" script="nostalrius/272.lua" />
+	<movevent event="StepIn" movementid="273" script="nostalrius/273.lua" />
+	<movevent event="AddItem" movementid="273" tileitem="1" script="nostalrius/273.lua" />
+	<movevent event="StepIn" movementid="274" script="nostalrius/274.lua" />
+	<movevent event="AddItem" movementid="274" tileitem="1" script="nostalrius/274.lua" />
+	<movevent event="StepIn" movementid="275" script="nostalrius/275.lua" />
+	<movevent event="AddItem" movementid="275" tileitem="1" script="nostalrius/275.lua" />
+	<movevent event="StepIn" movementid="276" script="nostalrius/276.lua" />
+	<movevent event="AddItem" movementid="276" tileitem="1" script="nostalrius/276.lua" />
+	<movevent event="StepIn" movementid="277" script="nostalrius/277.lua" />
+	<movevent event="AddItem" movementid="277" tileitem="1" script="nostalrius/277.lua" />
+	<movevent event="StepIn" movementid="278" script="nostalrius/278.lua" />
+	<movevent event="AddItem" movementid="278" tileitem="1" script="nostalrius/278.lua" />
+	<movevent event="StepIn" movementid="279" script="nostalrius/279.lua" />
+	<movevent event="AddItem" movementid="279" tileitem="1" script="nostalrius/279.lua" />
+	<movevent event="StepIn" movementid="280" script="nostalrius/280.lua" />
+	<movevent event="AddItem" movementid="280" tileitem="1" script="nostalrius/280.lua" />
+	<movevent event="StepIn" movementid="281" script="nostalrius/281.lua" />
+	<movevent event="AddItem" movementid="281" tileitem="1" script="nostalrius/281.lua" />
+	<movevent event="StepIn" movementid="282" script="nostalrius/282.lua" />
+	<movevent event="AddItem" movementid="282" tileitem="1" script="nostalrius/282.lua" />
+	<movevent event="StepIn" movementid="283" script="nostalrius/283.lua" />
+	<movevent event="AddItem" movementid="283" tileitem="1" script="nostalrius/283.lua" />
+	<movevent event="StepIn" movementid="284" script="nostalrius/284.lua" />
+	<movevent event="AddItem" movementid="284" tileitem="1" script="nostalrius/284.lua" />
+	<movevent event="StepIn" movementid="285" script="nostalrius/285.lua" />
+	<movevent event="AddItem" movementid="285" tileitem="1" script="nostalrius/285.lua" />
+	<movevent event="StepIn" movementid="286" script="nostalrius/286.lua" />
+	<movevent event="AddItem" movementid="286" tileitem="1" script="nostalrius/286.lua" />
+	<movevent event="StepIn" movementid="287" script="nostalrius/287.lua" />
+	<movevent event="AddItem" movementid="287" tileitem="1" script="nostalrius/287.lua" />
+	<movevent event="StepIn" movementid="288" script="nostalrius/288.lua" />
+	<movevent event="AddItem" movementid="288" tileitem="1" script="nostalrius/288.lua" />
+	<movevent event="StepIn" movementid="289" script="nostalrius/289.lua" />
+	<movevent event="AddItem" movementid="289" tileitem="1" script="nostalrius/289.lua" />
+	<movevent event="StepIn" movementid="290" script="nostalrius/290.lua" />
+	<movevent event="AddItem" movementid="290" tileitem="1" script="nostalrius/290.lua" />
+	<movevent event="StepIn" movementid="291" script="nostalrius/291.lua" />
+	<movevent event="AddItem" movementid="291" tileitem="1" script="nostalrius/291.lua" />
+	<movevent event="StepIn" movementid="292" script="nostalrius/292.lua" />
+	<movevent event="AddItem" movementid="292" tileitem="1" script="nostalrius/292.lua" />
+	<movevent event="StepIn" movementid="700" script="nostalrius/700.lua" />
+	<movevent event="AddItem" movementid="700" tileitem="1" script="nostalrius/700.lua" />
+	<movevent event="StepIn" movementid="701" script="nostalrius/701.lua" />
+	<movevent event="AddItem" movementid="701" tileitem="1" script="nostalrius/701.lua" />
+	<movevent event="StepIn" movementid="703" script="nostalrius/703.lua" />
+	<movevent event="AddItem" movementid="703" tileitem="1" script="nostalrius/703.lua" />
+	<movevent event="StepIn" movementid="704" script="nostalrius/704.lua" />
+	<movevent event="AddItem" movementid="704" tileitem="1" script="nostalrius/704.lua" />
+	<movevent event="StepIn" movementid="705" script="nostalrius/705.lua" />
+	<movevent event="AddItem" movementid="705" tileitem="1" script="nostalrius/705.lua" />
+	
 	
 	<!-- Nostalrius Default Movements -->
 
@@ -533,6 +638,115 @@
 	<movevent event="StepIn" itemid="2198" script="misc/floorchange.lua" />
 	<movevent event="AddItem" itemid="2198" tileitem="1" script="misc/floorchange.lua" />
 	
+	<movevent event="StepIn" movementid="252" script="nostalrius/252.lua"/>
+	<movevent event="StepIn" movementid="253" script="nostalrius/253.lua"/>
+	<movevent event="StepIn" movementid="254" script="nostalrius/254.lua"/>
+	<movevent event="StepIn" movementid="255" script="nostalrius/255.lua"/>
+	<movevent event="StepIn" movementid="256" script="nostalrius/256.lua"/>
+	<movevent event="StepIn" movementid="257" script="nostalrius/257.lua"/>
+	<movevent event="StepIn" movementid="258" script="nostalrius/258.lua"/>
+	<movevent event="AddItem" movementid="258" script="nostalrius/258.lua"/>
+	<movevent event="StepIn" movementid="259" script="nostalrius/259.lua"/>
+	
+	
+	<!-- Exit GS Cave -->
+	<movevent event="StepIn" movementid="300" script="nostalrius/300.lua" />
+    <movevent event="AddItem" movementid="300" tileitem="1" script="nostalrius/300.lua" />
+
+	<movevent event="StepIn" movementid="307" script="nostalrius/307.lua"/>
+    <movevent event="AddItem" movementid="307" tileitem="1" script="nostalrius/307.lua"/>
+
+	<movevent event="StepIn" movementid="308" script="nostalrius/308.lua"/>
+    <movevent event="AddItem" movementid="308" tileitem="1" script="nostalrius/308.lua"/>
+	
+	<movevent event="StepIn" movementid="309" script="nostalrius/309.lua"/>
+    <movevent event="AddItem" movementid="309" tileitem="1" script="nostalrius/309.lua"/>
+	
+	<movevent event="StepIn" movementid="310" script="nostalrius/310.lua"/>
+    <movevent event="AddItem" movementid="310" tileitem="1" script="nostalrius/310.lua"/>
+	
+	<movevent event="StepIn" movementid="311" script="nostalrius/311.lua"/>
+    <movevent event="AddItem" movementid="311" tileitem="1" script="nostalrius/311.lua"/>
+	
+	<movevent event="StepIn" movementid="304" script="nostalrius/HOTA/304.lua"/>
+	<movevent event="StepIn" movementid="305" script="nostalrius/HOTA/305.lua"/>
+	
+	<movevent event="StepIn" movementid="1100" script="nostalrius/1100.lua" />
+	<movevent event="AddItem" movementid="1100" tileitem="1" script="nostalrius/1101.lua" />
+	<movevent event="StepIn" movementid="1101" script="nostalrius/1101.lua" />
+	<movevent event="AddItem" movementid="1101" tileitem="1" script="nostalrius/1101.lua" />
+	<movevent event="StepIn" movementid="1102" script="nostalrius/1102.lua" />
+	<movevent event="AddItem" movementid="1102" tileitem="1" script="nostalrius/1102.lua" />
+	<movevent event="StepIn" movementid="1103" script="nostalrius/1103.lua" />
+	<movevent event="AddItem" movementid="1103" tileitem="1" script="nostalrius/1103.lua" />
+	<movevent event="StepIn" movementid="1104" script="nostalrius/1104.lua" />
+	<movevent event="StepOut" movementid="1104" script="nostalrius/1104.lua" />
+	<movevent event="StepIn" movementid="1105" script="nostalrius/1105.lua" />
+	<movevent event="AddItem" movementid="1105" tileitem="1" script="nostalrius/1105.lua" />
+	<movevent event="StepIn" movementid="1106" script="nostalrius/1106.lua" />
+	<movevent event="AddItem" movementid="1106" tileitem="1" script="nostalrius/1106.lua" />
+	<movevent event="StepIn" movementid="1107" script="nostalrius/1107.lua" />
+	<movevent event="AddItem" movementid="1107" tileitem="1" script="nostalrius/1107.lua" />
+	<movevent event="StepIn" movementid="1108" script="nostalrius/1108.lua" />
+	<movevent event="AddItem" movementid="1108" tileitem="1" script="nostalrius/1108.lua" />
+	<movevent event="StepIn" movementid="1109" script="nostalrius/1109.lua" />
+	<movevent event="AddItem" movementid="1109" tileitem="1" script="nostalrius/1109.lua" />
+	<movevent event="StepIn" movementid="1110" script="nostalrius/1110.lua" />
+	<movevent event="AddItem" movementid="1110" tileitem="1" script="nostalrius/1110.lua" />
+	<movevent event="StepIn" movementid="1111" script="nostalrius/1111.lua" />
+	<movevent event="AddItem" movementid="1111" tileitem="1" script="nostalrius/1111.lua" />
+	<movevent event="StepIn" movementid="1112" script="nostalrius/1112.lua" />
+	<movevent event="AddItem" movementid="1112" tileitem="1" script="nostalrius/1112.lua" />
+	<movevent event="StepIn" movementid="1113" script="nostalrius/1113.lua" />
+	<movevent event="AddItem" movementid="1113" tileitem="1" script="nostalrius/1113.lua" />
+	<movevent event="StepIn" movementid="1114" script="nostalrius/1114.lua" />
+	<movevent event="AddItem" movementid="1114" tileitem="1" script="nostalrius/1114.lua" />
+	<movevent event="StepIn" movementid="1115" script="nostalrius/1115.lua" />
+	<movevent event="AddItem" movementid="1115" tileitem="1" script="nostalrius/1115.lua" />
+	<movevent event="StepIn" movementid="1116" script="nostalrius/1116.lua" />
+	<movevent event="AddItem" movementid="1116" tileitem="1" script="nostalrius/1116.lua" />
+	<movevent event="StepIn" movementid="1117" script="nostalrius/1117.lua" />
+	<movevent event="AddItem" movementid="1117" tileitem="1" script="nostalrius/1117.lua" />
+	<movevent event="StepIn" movementid="1118" script="nostalrius/1118.lua" />
+	<movevent event="AddItem" movementid="1118" tileitem="1" script="nostalrius/1118.lua" />
+	<movevent event="StepIn" movementid="1119" script="nostalrius/1119.lua" />
+	<movevent event="AddItem" movementid="1119" tileitem="1" script="nostalrius/1119.lua" />
+	<movevent event="StepIn" movementid="1120" script="nostalrius/1120.lua" />
+	<movevent event="AddItem" movementid="1120" tileitem="1" script="nostalrius/1120.lua" />
+	<movevent event="StepIn" movementid="1121" script="nostalrius/1121.lua" />
+	<movevent event="AddItem" movementid="1121" tileitem="1" script="nostalrius/1121.lua" />
+	<movevent event="StepIn" movementid="1122" script="nostalrius/1122.lua" />
+	<movevent event="AddItem" movementid="1122" tileitem="1" script="nostalrius/1122.lua" />
+	<movevent event="StepIn" movementid="1123" script="nostalrius/1123.lua" />
+	<movevent event="AddItem" movementid="1123" tileitem="1" script="nostalrius/1123.lua" />
+	<movevent event="StepIn" movementid="1124" script="nostalrius/1124.lua" />
+	<movevent event="AddItem" movementid="1124" tileitem="1" script="nostalrius/1124.lua" />
+	<movevent event="StepIn" movementid="1125" script="nostalrius/1125.lua" />
+	<movevent event="AddItem" movementid="1125" tileitem="1" script="nostalrius/1125.lua" />
+	<movevent event="StepIn" movementid="1126" script="nostalrius/1126.lua" />
+	<movevent event="AddItem" movementid="1126" tileitem="1" script="nostalrius/1126.lua" />
+	<movevent event="StepIn" movementid="1127" script="nostalrius/1127.lua" />
+	<movevent event="AddItem" movementid="1127" tileitem="1" script="nostalrius/1127.lua" />
+	<movevent event="StepIn" movementid="1128" script="nostalrius/1128.lua" />
+	<movevent event="AddItem" movementid="1128" tileitem="1" script="nostalrius/1128.lua" />
+	<movevent event="StepIn" movementid="1129" script="nostalrius/1129.lua" />
+	<movevent event="AddItem" movementid="1129" tileitem="1" script="nostalrius/1129.lua" />
+	<movevent event="StepIn" movementid="1130" script="nostalrius/1130.lua" />
+	<movevent event="AddItem" movementid="1130" tileitem="1" script="nostalrius/1130.lua" />
+	<movevent event="StepIn" movementid="1131" script="nostalrius/1131.lua" />
+	<movevent event="AddItem" movementid="1131" tileitem="1" script="nostalrius/1131.lua" />
+	<movevent event="StepIn" movementid="1132" script="nostalrius/1132.lua" />
+	<movevent event="StepIn" movementid="1133" script="nostalrius/1133.lua" />
+	<movevent event="AddItem" movementid="1133" tileitem="1" script="nostalrius/1133.lua" />
+	<movevent event="StepIn" movementid="9958" script="nostalrius/9958.lua" />
+	<movevent event="AddItem" movementid="9958" tileitem="1" script="nostalrius/9958.lua" />
+	<movevent event="StepIn" movementid="9959" script="nostalrius/9959.lua" />
+	<movevent event="StepIn" movementid="9916" script="nostalrius/9916.lua" />
+	<movevent event="AddItem" movementid="9916" tileitem="1" script="nostalrius/9916.lua" />
+	<movevent event="StepIn" movementid="9917" script="nostalrius/9917.lua" />
+	<movevent event="AddItem" movementid="9917" tileitem="1" script="nostalrius/9917.lua" />
+	
+	
 	<!-- Damage -->
 	<movevent event="StepIn" itemid="2145" script="misc/damage.lua" />
 	<movevent event="StepIn" itemid="2146" script="misc/damage.lua" />
@@ -541,12 +755,11 @@
 	<movevent event="StepIn" itemid="3944" script="misc/damage.lua" />
 	
 	<!-- Liquid Deletions -->
-	<movevent event="AddItem" fromid="731" toid="734" tileitem="1" script="misc/swamp.lua" />
 	<movevent event="AddItem" fromid="837" toid="840" tileitem="1" script="misc/tar.lua" />
 	<movevent event="AddItem" fromid="4680" toid="4701" tileitem="1" script="misc/swamp.lua" />
 	<movevent event="AddItem" fromid="4738" toid="4744" tileitem="1" script="misc/swamp.lua" />
 	<movevent event="AddItem" fromid="4874" toid="4880" tileitem="1" script="misc/swamp.lua" />
-	<movevent event="AddItem" fromid="727" toid="730" tileitem="1" script="misc/lava.lua" />
+	<movevent event="AddItem" fromid="727" toid="730" tileitem="1" script="misc/swamp.lua" />
 	<movevent event="AddItem" fromid="4597" toid="4602" tileitem="1" script="misc/water.lua" />
 	<movevent event="AddItem" fromid="4609" toid="4620" tileitem="1" script="misc/water.lua" />
 	<movevent event="AddItem" fromid="4653" toid="4655" tileitem="1" script="misc/water.lua" />

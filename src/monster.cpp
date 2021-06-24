@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -108,7 +108,7 @@ int32_t Monster::getDefense()
 
 bool Monster::canSee(const Position& pos) const
 {
-	return Creature::canSee(getPosition(), pos, 9, 9);
+	return Creature::canSee(getPosition(), pos, 9, 9) && getPosition().z == pos.z;
 }
 
 void Monster::onAttackedCreature(Creature* creature)
@@ -269,7 +269,7 @@ void Monster::onCreatureMove(Creature* creature, const Tile* newTile, const Posi
 
 					Tile* tile = g_game.map.getTile(checkPosition);
 					if (tile) {
-						Creature* topCreature = tile->getTopCreature();
+						Creature* topCreature = tile->getBottomCreature();
 						if (topCreature && followCreature != topCreature && isOpponent(topCreature)) {
 							selectTarget(topCreature);
 						}
@@ -419,8 +419,6 @@ void Monster::onCreatureFound(Creature* creature, bool pushFront/* = false*/)
 
 void Monster::onCreatureEnter(Creature* creature)
 {
-	// std::cout << "onCreatureEnter - " << creature->getName() << std::endl;
-
 	if (getMaster() == creature) {
 		//Follow master again
 		isMasterInRange = true;
@@ -473,8 +471,6 @@ bool Monster::isOpponent(const Creature* creature) const
 
 void Monster::onCreatureLeave(Creature* creature)
 {
-	// std::cout << "onCreatureLeave - " << creature->getName() << std::endl;
-
 	if (getMaster() == creature) {
 		//Take random steps and only use defense abilities (e.g. heal) until its master comes back
 		isMasterInRange = false;
@@ -694,9 +690,6 @@ bool Monster::isTarget(const Creature* creature) const
 		return false;
 	}
 
-	if (creature->getPosition().z != getPosition().z) {
-		return false;
-	}
 	return true;
 }
 
@@ -752,7 +745,7 @@ void Monster::updateIdleStatus()
 			idle = false;
 		} else {
 			for (Condition* condition : conditions) {
-				if (condition->getType() >= CONDITION_ENERGY && condition->getType() <= CONDITION_ENERGY) {
+				if (condition->getType() >= CONDITION_POISON && condition->getType() <= CONDITION_ENERGY) {
 					// monsters with aggressive conditions never become idle
 					idle = false;
 					break;

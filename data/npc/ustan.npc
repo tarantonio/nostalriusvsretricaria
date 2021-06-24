@@ -50,8 +50,6 @@ VANISH,!           -> "Good bye."
 
 "cough", "syrup"   -> "I had some cough syrup a while ago. It was stolen in an ape raid. I fear if you want more cough syrup you will have to buy it in the druids guild in carlin."
 
-druid,"rod",QuestValue(333)<1  -> "Oh, you did not purchase your first magical rod yet? Please take this little present from me as your magic teacher!",SetQuestValue(333,1),Type=3066, Amount=1,Create(Type)
-
 "spell",Druid   -> "I can teach you rune spells and instant spells. What kind of spell do you wish to learn? You can also tell me for which level you would like to learn a spell, if you prefer that.", Topic=2
 "spell"         -> "Sorry, I only sell spells to druids."
 

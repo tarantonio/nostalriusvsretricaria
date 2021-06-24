@@ -30,6 +30,5 @@
 		<item id="3031" countmax="10" chance="700" /> <!-- a gold coin -->
 		<item id="3031" countmax="20" chance="400" /> <!-- a gold coin -->
 		<item id="3577" countmax="2" chance="500" /> <!-- meat -->
-		<item id="3492" countmax="3" chance="200" /> <!-- a worm -->
 	</loot>
 </monster>

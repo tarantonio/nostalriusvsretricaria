@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -534,6 +534,24 @@ bool Player::canSee(const Position& pos) const
 		return false;
 	}
 	return client->canSee(pos);
+}
+
+bool Player::canWalkthrough(const Creature* creature) const
+{
+	if (group->access || creature->isInGhostMode()) {
+		return true;
+	}
+
+	return false;
+}
+
+bool Player::canWalkthroughEx(const Creature* creature) const
+{
+	if (group->access) {
+		return true;
+	}
+
+	return false;
 }
 
 bool Player::canSeeCreature(const Creature* creature) const

@@ -1,24 +1,16 @@
-# Nostalrius 7.7
-Nostalrius is a 7.7 clone project that has been in development for a long time, it is based on TheForgottenServer 1.2 fork.
+# Retricaria 7.7
+Retricaria is a 7.7 clone project that has been in development for a long time, it is based on TheForgottenServer 1.2 fork. We used the free nostalrius as base to make this great project for the community.
 
   - You can find here the most complete 7.72 Tibia replica that has ever been made
   - Formulas, monsters behavior, the map, everything!
+  - Contain a lot of fixes from the main nostalscam repository
+
+# Recommended OTClient
+If you're planning to start a serious project, you may need an stable and optimized client:
+  - https://github.com/JusticeSeeker666/retricaria-otclient
+
+This otclient project contains a lot of good features as (CAM, DLL detection and much much more).
 
 # Credits
 
-  - Alejandro Mujica (Ezzz in otland) - I'm the main developer and programmer of this game server
-  - Kevin Luiz (long time friendship, also helped get everything fixed and stable)
-  - Zakaria Ziady (compromised myself into getting the true formulas of the game server)
-  
-# Tools
-
-  - EZItem Editor for Nostalrius https://otland.net/threads/ezitem-editor-for-nostalrius-engine-x64.271823/
-
-# Map Editor
-
-  - https://github.com/TwistedScorpio/Map-Editor
-
-# Donations
-
-  - If you would like to support my work and also to continue to keep me motivated in updating missing details, please, consider donating
-  - kenshin2565@hotmail.com
+  - OTLand community for making this project real

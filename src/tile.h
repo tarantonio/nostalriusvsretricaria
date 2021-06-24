@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -172,14 +172,17 @@ class Tile : public Cylinder
 		BedItem* getBedItem() const;
 
 		Creature* getTopCreature() const;
-		const Creature* getBottomCreature() const;
+		Creature* getBottomCreature() const;
 		Creature* getTopVisibleCreature(const Creature* creature) const;
-		const Creature* getBottomVisibleCreature(const Creature* creature) const;
+		Creature* getBottomVisibleCreature(const Creature* creature) const;
 		Item* getTopTopItem() const;
 		Item* getTopDownItem() const;
 		bool isMoveableBlocking() const;
 		Thing* getTopVisibleThing(const Creature* creature);
 		Item* getItemByTopOrder(int32_t topOrder);
+
+		bool hasHeight(uint32_t height) const;
+		uint32_t getHeight() const;
 
 		size_t getThingCount() const {
 			size_t thingCount = getCreatureCount() + getItemCount();
@@ -218,8 +221,6 @@ class Tile : public Cylinder
 				return ZONE_NORMAL;
 			}
 		}
-
-		bool hasHeight(uint32_t n) const;
 
 		std::string getDescription(int32_t lookDistance) const final;
 

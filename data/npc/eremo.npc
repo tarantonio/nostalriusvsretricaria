@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# eremo.npc: Datenbank für den Weisen Eremo
+# eremo.npc: Datenbank fï¿½r den Weisen Eremo
 
 Name = "Eremo"
 Outfit = (130,0-109-128-95)
@@ -71,10 +71,7 @@ Topic=1,"yes",CountMoney<Price            -> "Oh. You do not have enough money."
 Topic=1,"yes"                             -> "Here you are. Look in your spellbook for the pronounciation of this spell.", DeleteMoney, EffectOpp(13), TeachSpell(String)
 Topic=1                                   -> "Fine. Do as you please."
 
-
-Topic=2,"yes",PZBlock,! -> "Your soul is imbalanced by death and murder. Try again after you regained your balance!"
-
-Topic=2,"yes" -> "Here you go!", Idle, EffectOpp(11), Teleport(33288,31956,6), EffectOpp(11)
+Topic=2,"yes" -> "Here you go!", Idle, EffectOpp(11), Teleport(33288,31956,7), EffectOpp(11)
 Topic=2       -> "Maybe later."
 
 Topic=3,"yes",CountMoney>=Price -> "Thank you. Use it wisely.", DeleteMoney, Create(Type)
@@ -99,7 +96,6 @@ Topic=4                         -> "Maybe another time."
 "suns",PvPEnforced,! -> *
 "wisdom",PvPEnforced,! -> *
 "solitude",PvPEnforced,! -> *
-
 
 "pilgrimage"     -> "Whenever you receive a lethal wound your lifeforce is damaged. With every single of the five blessings you have this damage will be reduced."
 "ashes"          -> *

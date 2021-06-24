@@ -45,8 +45,6 @@ Topic=2,"instant","spell"     -> "... Attack spells ... healing spells ... suppl
 Topic=2,"level"               -> "Which level...?", Topic=2
 Topic=2,"bye"                 -> "... Good... Bye", Idle
 
-sorcerer,"wand",QuestValue(333)<1  -> "Oooh... present from meee... take it... goooood start for youuuung sorcerers...",SetQuestValue(333,1),Type=3074, Amount=1,Create(Type)
-
 Sorcerer,"level"               -> "Which level...?", Topic=2
 Sorcerer,"rune","spell"        -> "... Attack rune spells ...  support rune spells ... Which...?"
 Sorcerer,"instant","spell"     -> "... Attack spells ... healing spells ... supply spells ... support spells ... summon spells. Which...?"

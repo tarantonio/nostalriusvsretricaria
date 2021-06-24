@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# oldadall.npc: Datenbank für den Fährman old adall
+# oldadall.npc: Datenbank fï¿½r den Fï¿½hrman old adall
 
 Name = "Old Adall"
 Outfit = (130,95-26-115-76)
@@ -61,31 +61,10 @@ VANISH,!           -> "Bye."
 "east"       -> Price=7, "Do you seek a passage to the east end of Port Hope for %P gold?", Topic=1
 "west"       -> Price=7, "Do you seek a passage to the west end of Port Hope for %P gold?", Topic=2
 
-
-Topic=1,"yes",PZBlock,! -> "First get rid of those blood stains! You are not going to ruin my vehicle!"
-Topic=2,"yes",PZBlock,! -> "First get rid of those blood stains! You are not going to ruin my vehicle!"
-
 Topic=1,"yes",Premium,CountMoney>=Price   -> "Here we go!", DeleteMoney, Idle, EffectOpp(11), Teleport(32679,32777,7), EffectOpp(11)
 Topic=1,"yes",CountMoney<Price            -> "Sorry, you do not have enough gold."
 Topic=2,"yes",Premium,CountMoney>=Price   -> "Here we go!", DeleteMoney, Idle, EffectOpp(11), Teleport(32558,32780,7), EffectOpp(11)
 Topic=2,"yes",CountMoney<Price            -> "Sorry, you do not have enough gold."
 Topic>0                                   -> "Maybe another time."
-
-
-#"trip"         -> Price=7, "Would you like to travel to the east end of Port Hope or to the west end of the town for 7 gold?", Topic=1
-#"route"        -> *
-#"passage"      -> *
-#"town"         -> *
-#"destination"  -> *
-#"sail"         -> *
-#"go"           -> *
-#Topic=1,"east",PZBlock,! -> "First get rid of those blood stains! You are not going to ruin my vehicle!"
-#Topic=1,"west",PZBlock,! -> "First get rid of those blood stains! You are not going to ruin my vehicle!"
-
-#Topic=1,"east",Premium,CountMoney>=Price -> "Here we go!", DeleteMoney, Idle, EffectOpp(11), Teleport(32679,32777,7), EffectOpp(11)
-#Topic=1,"east",CountMoney<Price            -> "Sorry, you do not have enough gold."
-#Topic=1,"west",Premium,CountMoney>=Price -> "Here we go!", DeleteMoney, Idle, EffectOpp(11), Teleport(32558,32780,7), EffectOpp(11)
-#Topic=1,"west",CountMoney<Price            -> "Sorry, you do not have enough gold."
-#Topic=1,"yes"                              -> "Fine you fool, considering I was asking you WHERE you want to travel 'yes' is a very smart answer!"
 
 }

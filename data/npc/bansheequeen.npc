@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# bansheequeen.npc: Datenbank für die Bansheequeen
+# bansheequeen.npc: Datenbank fï¿½r die Bansheequeen
 
 Name = "The Queen of the Banshee"
 Outfit = (78,0-0-0-0)
@@ -33,8 +33,6 @@ VANISH,!           -> "Yes, flee from death. But know it shall be always one ste
 "seventh",level<60,! -> "You are not experienced enough to master the challenges ahead or to receive knowledge about the seventh seal. Go and learn more before asking me again."
 "seventh",level>59,! -> "If you have passed the first six seals and entered the blue fires that lead to the chamber of the seal you might receive my kiss ... It will open the last seal. Do you think you are ready?", topic=2 
 "last"            -> *
-
-"kiss",PZBlock,! -> "You have spilled too much blood recently and the dead are hungry for your soul. Perhaps return when you regained you inner balance."
 
 "kiss",topic=8 , QuestValue(11) < 1 -> "Are you prepared to receive my kiss, even though this will mean that your death as well as a part of your soul will forever belong to me, my dear?", Topic=1
 

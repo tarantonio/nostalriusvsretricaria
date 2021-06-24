@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# sigurd.npc: Datenbank für den Händler Sigurd
+# sigurd.npc: Datenbank fï¿½r den Hï¿½ndler Sigurd
 
 Name = "Sigurd"
 Outfit = (69,0-0-0-0)
@@ -24,13 +24,13 @@ VANISH,!           -> "Good bye. Come back soon."
 "job"       -> "I help my brother handling his little magic store so he can focus on studying spells."
 "time"      -> "It's %T right now."
 
-"offer"           -> "I'm selling life and mana fluids, runes, wands, rods and spellbooks."
+"offer"           -> "I'm selling life and mana fluids, blank runes and spellbooks."
 "goods"           -> *
 "do","you","sell" -> *
 "do","you","have" -> *
 
 
-"rune"         -> "I sell blank runes and spell runes."
+"rune"         -> "I sell blank runes."
 "life","fluid" -> Type=2874, Data=11, Amount=1, Price=60, "Do you want to buy life fluid for %P gold?", Topic=5
 "mana","fluid" -> Type=2874, Data=10, Amount=1, Price=55, "Do you want to buy mana fluid for %P gold?", Topic=5
 "blank","rune" -> Type=3147, Amount=1, Price=10, "Do you want to buy a blank rune for %P gold?", Topic=4

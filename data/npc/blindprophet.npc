@@ -1,5 +1,5 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# blindprophet.npc: Datenbank für den blinden affenpropheten
+# blindprophet.npc: Datenbank fï¿½r den blinden affenpropheten
 
 Name = "The Blind Prophet"
 Outfit = (117,0-0-0-0)
@@ -32,7 +32,6 @@ VANISH,!           -> "Good bye."
 
 "transport",QuestValue(293)>14   -> "You want me to transport you to forbidden land?", topic=1
 "transport",QuestValue(293)<15   -> "No!"
-"yes",topic=1,PZBlock,! -> "Anger of battle is burning in you! First calm down."
 "yes",topic=1           -> "Take care!", Teleport(33026,32580,6), EffectOpp(11)
 "no" ,topic=1           -> "Wise decision maybe."
 

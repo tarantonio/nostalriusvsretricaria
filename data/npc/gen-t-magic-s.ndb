@@ -1,7 +1,7 @@
 # GIMUD - Graphical Interface Multi User Dungeon
-# gen-t-gems-s.ndb: Datenbank für generischen Edelsteinverkauf
+# gen-t-gems-s.ndb: Datenbank fï¿½r generischen Edelsteinverkauf
 
-"offer"           -> "I'm selling life and mana fluids, runes, and spellbooks."
+"offer"           -> "I'm selling life and mana fluids, blank runes, and spellbooks."
 "goods"           -> *
 "do","you","sell" -> *
 "do","you","have" -> *

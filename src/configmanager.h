@@ -1,6 +1,6 @@
 /**
- * Tibia GIMUD Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Alejandro Mujica <alejandrodemujica@gmail.com>
+ * The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2021  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,9 +39,8 @@ class ConfigManager
 			WARN_UNSAFE_SCRIPTS,
 			CONVERT_UNSAFE_SCRIPTS,
 			TELEPORT_NEWBIES,
-			STACK_CUMULATIVES,
-			QUERY_PLAYER_CONTAINERS,
-
+			ENABLE_PLAYER_PROTECTION,
+			PROXY_SYSTEM,
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
 
@@ -64,6 +63,9 @@ class ConfigManager
 			MYSQL_SOCK,
 			DEFAULT_PRIORITY,
 			MAP_AUTHOR,
+			ANTIPUSH_ITEMS,
+			BAN_DLLS,
+			BAN_DLL_INFO,
 
 			LAST_STRING_CONFIG /* this must be the last one */
 		};
@@ -83,6 +85,8 @@ class ConfigManager
 			MAX_MESSAGEBUFFER,
 			ACTIONS_DELAY_INTERVAL,
 			EX_ACTIONS_DELAY_INTERVAL,
+			ITEM_ACTIONS_DELAY_INTERVAL,
+			ITEM_EX_ACTIONS_DELAY_INTERVAL,
 			KICK_AFTER_MINUTES,
 			PROTECTION_LEVEL,
 			DEATH_LOSE_PERCENT,
@@ -103,8 +107,10 @@ class ConfigManager
 			MAX_PACKETS_PER_SECOND,
 			NEWBIE_TOWN,
 			NEWBIE_LEVEL_THRESHOLD,
-			MONEY_RATE,
-
+			ANTIPUSH_DELAY,
+			BAN_DLL_TIME,
+			RATE_SPELL_COUNT,
+			
 			LAST_INTEGER_CONFIG /* this must be the last one */
 		};
 
